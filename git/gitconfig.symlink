@@ -5,8 +5,8 @@
 [hub]
         protocol = https
 [user]
-        name = Zach Holman
-        email = zach@zachholman.com
+        name = Erik Davidson
+        email = erik@erikd.org
 [credential]
         helper = osxkeychain
 [alias]
