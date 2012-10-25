@@ -3,7 +3,14 @@
 # bootstrap installs things.
 
 # Assume everyone's on OS X and run Homebrew (*nix-ers beware)
-. script/homebrew
+case "$(uname)" in
+"Linux")
+	. script/debian;;
+"Darwin")
+	. script/homebrew;;
+*)
+	echo "Unknown OS: $(uname)";;
+esac
 
 # Run the install (I'd like to pull this out of rake, eventually)
 rake install

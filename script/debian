@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Handle installing utils in debian, similar to what
+# the homebrew file does
+
+echo "Installing required utils on Debian(-ish)"
+
+sudo apt-get install coreutils grc rake
