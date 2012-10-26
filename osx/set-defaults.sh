@@ -3,6 +3,9 @@
 # Ask for the administrator password upfront
 sudo -v
 
+# Get the current script path for any extra config files
+CURDIR="$( cd "$( dirname "$0" )" && pwd )"
+
 # Get the host name to use
 read -p "Computer Hostname? " COMPHOST
 
@@ -420,14 +423,18 @@ defaults write com.apple.mail NSUserKeyEquivalents -dict-add "Send" "@\\U21a9"
 # Terminal                                                                    #
 ###############################################################################
 
+# Use zshell for the current user
+sudo chsh -s /bin/zsh `whoami`
+
 # Only use UTF-8 in Terminal.app
 defaults write com.apple.terminal StringEncodings -array 4
 
 # Use a modified version of the Pro theme by default in Terminal.app
-open "$ZSH/osx/aphistic.terminal"
+open "$CURDIR/aphistic.terminal"
 sleep 1 # Wait a bit to make sure the theme is loaded
 defaults write com.apple.terminal "Default Window Settings" -string "aphistic"
 defaults write com.apple.terminal "Startup Window Settings" -string "aphistic"
+sleep 1
 
 # Enable .focus follows mouse. for Terminal.app and all X11 apps
 # i.e. hover over a window and start typing in it without clicking first
@@ -534,7 +541,7 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 ###############################################################################
 
 for app in "Address Book" "Calendar" "Contacts" "Dashboard" "Dock" "Finder" \
-	"Mail" "Safari" "SizeUp" "SystemUIServer" "Terminal" "Transmission" \
+	"Mail" "Safari" "SizeUp" "SystemUIServer" "Transmission" \
 	"Twitter" "iCal" "iTunes"; do
 	killall "$app" > /dev/null 2>&1
 done
