@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Handle installing utils in arch, similar to what
+# the homebrew file does
+
+echo "Installing required utils on Arch"
+
+sudo pacman -S coreutils grc rake

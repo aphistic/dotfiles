@@ -5,11 +5,22 @@
 # Assume everyone's on OS X and run Homebrew (*nix-ers beware)
 case "$(uname)" in
 "Linux")
-	. script/debian;;
+	if [ -f /etc/debian_release ]
+	then
+		. script/debian
+	elif [ -f /etc/arch-release ]
+	then
+		. script/arch
+	else
+		echo "Unknown Linux"
+	fi
+	;;
 "Darwin")
-	. script/homebrew;;
+	. script/homebrew
+	;;
 *)
-	echo "Unknown OS: $(uname)";;
+	echo "Unknown OS: $(uname)"
+	;;
 esac
 
 # Run the install (I'd like to pull this out of rake, eventually)
