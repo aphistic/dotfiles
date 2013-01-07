@@ -41,7 +41,7 @@ need_push () {
 }
 
 who_prompt(){
-  echo "$(whoami)@$(hostname -s)"
+  echo "$(whoami)@$(uname -n | cut -d'.' -f 1)"
 }
 
 rb_prompt(){
