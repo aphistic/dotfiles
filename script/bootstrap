@@ -25,3 +25,7 @@ esac
 
 # Run the install (I'd like to pull this out of rake, eventually)
 rake install
+
+# Manually run the sublime2 setup
+echo "Running Sublime Text 2 Setup"
+sublime2/setup
