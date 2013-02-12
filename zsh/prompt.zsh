@@ -41,7 +41,7 @@ need_push () {
 }
 
 who_prompt(){
-  echo "$(whoami)@$(hostname)"
+  echo "$(whoami)@$(hostname -s)"
 }
 
 rb_prompt(){
