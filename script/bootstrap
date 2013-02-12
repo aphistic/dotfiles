@@ -5,12 +5,45 @@
 # Assume everyone's on OS X and run Homebrew (*nix-ers beware)
 case "$(uname)" in
 "Linux")
-	. script/debian;;
+	if [ -f /etc/debian_release ]
+	then
+        export DOTFILESENV=linux
+        export DOTFILESDIST=debian
+		. script/debian
+	elif [ -f /etc/arch-release ]
+	then
+        export DOTFILESENV=linux
+        export DOTFILESDIST=arch
+		. script/arch
+	else
+        export DOTFILESENV=linux
+        export DOTFILESDIST=unknown
+		echo "Unknown Linux"
+	fi
+	;;
 "Darwin")
-	. script/homebrew;;
+    export DOTFILESENV=osx
+    export DOTFILESDIST=osx
+	. script/homebrew
+	;;
 *)
-	echo "Unknown OS: $(uname)";;
+    export DOTFILESENV=unknown
+    export DOTFILESDIST=unknown
+	echo "Unknown OS: $(uname)"
+	;;
 esac
 
 # Run the install (I'd like to pull this out of rake, eventually)
 rake install
+
+# Manually run the sublime2 setup
+case "$DOTFILESENV" in
+"linux")
+  echo "Running Sublime Text 2 Setup (Linux)"
+  sublime2/linux_setup
+  ;;
+"osx")
+  echo "Running Sublime Text 2 Setup (OS X)"
+  sublime2/osx_setup
+  ;;
+esac

@@ -31,3 +31,8 @@
         prompt = false
 [help]
         autocorrect = 1
+
+# Commenting out for now because debian is using an old
+# version of git
+#[push]
+#	default = simple
