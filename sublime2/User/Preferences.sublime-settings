@@ -1,3 +1,7 @@
 {
-  "theme": "Soda Dark.sublime-theme"
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"theme": "Soda Dark.sublime-theme"
 }
