@@ -20,5 +20,8 @@ fi
 #autoload -U compinit
 #compinit
 
+# turn off auto correct because it's more annoying than helpful
+unsetopt correct
+
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file

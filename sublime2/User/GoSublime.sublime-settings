@@ -1,3 +1,3 @@
 {
-	"shell": ["/bin/zsh", "--login", "$CMD"]
+	"env": { "GOPATH": "$HOME/godev", "GOROOT": "$HOME/go" }
 }
