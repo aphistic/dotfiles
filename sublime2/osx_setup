@@ -1,6 +1,6 @@
 #!/bin/sh
 # Setup a machine for Sublime Text 2
-set -x
+#set -x
 
 # symlink settings in
 sublime_dir=~/Library/Application\ Support/Sublime\ Text\ 2/Packages
@@ -9,4 +9,6 @@ ln -s "$ZSH/sublime2/User" "$sublime_dir"
 
 # Grab the Soda theme
 cd "$sublime_dir"
-git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"
+if [ ! -d "Theme - Soda" ]; then
+  git clone https://github.com/buymeasoda/soda-theme/ "Theme - Soda"
+fi
