@@ -5,4 +5,4 @@
 
 echo "Installing required utils on Debian(-ish)"
 
-sudo apt-get install coreutils grc rake
+sudo apt-get install coreutils grc rake exuberant-ctags dmz-cursor-theme zsh
