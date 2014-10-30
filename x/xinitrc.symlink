@@ -2,5 +2,6 @@ xmodmap ~/.xmodmaprc
 xrdb ~/.Xresources
 
 cat ~/.i3/config.base ~/.i3/config.host.`hostname` ~/.i3/config.local > ~/.i3/config
+cat ~/.i3/i3status.conf.base ~/.i3/i3status.conf.host.`hostname` ~/.i3/i3status.conf.local > ~/.i3status.conf
 
 exec i3
