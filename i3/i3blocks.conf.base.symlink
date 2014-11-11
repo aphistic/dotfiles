@@ -23,15 +23,6 @@
 # Global properties
 separator_block_width=15
 
-[volume]
-label=VOL
-#label=♪
-instance=Master
-#instance=PCM
-command=/usr/local/libexec/i3blocks/volume
-interval=once
-signal=10
-
 [memory]
 label=MEM
 command=/usr/local/libexec/i3blocks/memory
@@ -42,30 +33,8 @@ interval=30
 label=SWAP
 instance=swap
 command=/usr/local/libexec/i3blocks/memory
-separator=false
+#separator=f
 interval=30
-
-[disk]
-label=HOME
-#instance=/mnt/data
-command=/usr/local/libexec/i3blocks/disk
-interval=30
-
-[wireless]
-label=W
-instance=wlan0
-#instance=wlp3s0
-command=/usr/local/libexec/i3blocks/network
-color=#00FF00
-interval=10
-
-[ethernet]
-label=E
-instance=eth0
-#instance=enp0s25
-command=/usr/local/libexec/i3blocks/network
-color=#00FF00
-interval=10
 
 [cpu]
 label=CPU
@@ -77,13 +46,6 @@ min_width=CPU: 100.00%
 #[load]
 #command=/usr/local/libexec/i3blocks/load_average
 #interval=10
-
-[battery]
-label=BAT
-#label=⚡
-#instance=1
-command=/usr/local/libexec/i3blocks/battery
-interval=30
 
 [time]
 command=date '+%Y-%m-%d %H:%M:%S'

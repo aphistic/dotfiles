@@ -5,4 +5,17 @@
 
 echo "Installing required utils on Arch"
 
-sudo pacman -S coreutils grc rake
+sudo pacman -S coreutils grc rake zsh rxvt-unicode scrot imagemagick ruby-ronn ctags sysstat
+
+if [ ! -f /usr/local/bin/i3blocks ];
+then
+    
+    olddir=`pwd`
+    git clone git://github.com/vivien/i3blocks /tmp/i3blocks
+    cd /tmp/i3blocks
+    make clean all
+    sudo make install
+    cd $olddir
+    rm -rf /tmp/i3blocks
+
+fi

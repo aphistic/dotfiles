@@ -3,6 +3,6 @@ xrdb ~/.Xresources
 
 cat ~/.i3/config.base ~/.i3/config.host.`hostname` > ~/.i3/config
 cat ~/.i3/i3status.conf.base ~/.i3/i3status.conf.host.`hostname` > ~/.i3status.conf
-cat ~/.i3blocks.conf.base ~/.i3blocks.conf.host.`hostname` > ~/.i3blocks.conf
+cat ~/.i3blocks.conf.host.`hostname` ~/.i3blocks.conf.base > ~/.i3blocks.conf
 
 exec i3
