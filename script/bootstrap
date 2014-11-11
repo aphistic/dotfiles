@@ -15,6 +15,11 @@ case "$(uname)" in
         export DOTFILESENV=linux
         export DOTFILESDIST=ubuntu
         . script/debian
+    elif [ -f /etc/issue ] && grep -q CrunchBang /etc/issue
+    then
+        export DOTFILESENV=linux
+        export DOTFILESDIST=crunchbang
+        . script/debian
 	elif [ -f /etc/arch-release ]
 	then
         export DOTFILESENV=linux

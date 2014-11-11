@@ -5,4 +5,17 @@
 
 echo "Installing required utils on Debian(-ish)"
 
-sudo apt-get install coreutils grc rake exuberant-ctags dmz-cursor-theme zsh rxvt-unicode scrot imagemagick
+sudo apt-get install coreutils grc rake exuberant-ctags dmz-cursor-theme zsh rxvt-unicode scrot imagemagick ruby-ronn
+
+if [ ! -f /usr/local/bin/i3blocks ];
+then
+
+    olddir=`pwd`
+    git clone git://github.com/vivien/i3blocks /tmp/i3blocks
+    cd /tmp/i3blocks
+    make clean all
+    sudo make install
+    cd $olddir
+    rm -rf /tmp/i3blocks
+
+fi
