@@ -5,7 +5,7 @@
 
 echo "Installing required utils on Arch"
 
-sudo pacman -S coreutils grc rake zsh rxvt-unicode scrot imagemagick ruby-ronn ctags sysstat
+sudo pacman -S coreutils grc rake zsh rxvt-unicode scrot imagemagick ruby-ronn ctags sysstat base-devel
 
 if [ ! -f /usr/local/bin/i3blocks ];
 then

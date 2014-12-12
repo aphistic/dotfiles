@@ -6,7 +6,7 @@
         protocol = https
 [user]
         name = Erik Davidson
-        email = erik@erikd.org
+        email = erik.davidson@corvisa.com
 [credential]
         helper = osxkeychain
 [alias]
@@ -36,3 +36,5 @@
 # version of git
 #[push]
 #	default = simple
+[push]
+	default = simple

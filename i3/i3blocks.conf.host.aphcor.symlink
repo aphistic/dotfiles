@@ -12,6 +12,13 @@ command=/usr/local/libexec/i3blocks/network
 color=#00FF00
 interval=10
 
+[ethernet]
+label=B
+instance=br0
+command=/usr/local/libexec/i3blocks/network
+color=#00FF00
+interval=10
+
 [disk]
 label=R
 instance=/
