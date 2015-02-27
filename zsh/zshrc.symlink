@@ -25,3 +25,6 @@ unsetopt correct
 
 # load every completion after autocomplete loads
 for config_file ($ZSH/**/completion.zsh) source $config_file
+
+# set up rbenv if it's available
+if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
