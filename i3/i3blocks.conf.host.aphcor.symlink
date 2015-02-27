@@ -23,10 +23,16 @@ interval=10
 label=R
 instance=/
 command=/usr/local/libexec/i3blocks/disk
-interval=30
+interval=60
 
 [disk]
 label=H
 instance=/home
 command=/usr/local/libexec/i3blocks/disk
-interval=30
+interval=60
+
+[disk]
+label=D
+instance=/var/lib/docker
+command=/usr/local/libexec/i3blocks/disk
+interval=60
