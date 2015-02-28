@@ -1,0 +1,15 @@
+Cache/
+Index/
+Local/
+
+Packages/
+Installed\ Packages/
+
+Packages/User/Package\ Control.cache
+Packages/User/Package\ Control.last-run
+Packages/User/Package\ Control.merged-ca-bundle
+Packages/User/Package\ Control.user-ca-bundle
+
+Installed\ Packages/0_package_control_loader.sublime-package
+Packages/bz2/
+Packages/ssl-linux/

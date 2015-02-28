@@ -1,0 +1,13 @@
+{
+    "vars": [
+        { "name": "host", "exec": "hostname -s" }
+    ],
+    "merge": [
+        {
+            "output": "xinitrc.symlink",
+            "input": [
+                "xinitrc.base"
+            ]
+        }
+    ]
+}

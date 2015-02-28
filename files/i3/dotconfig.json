@@ -1,0 +1,13 @@
+{
+    "vars": [
+        { "name": "host", "exec": "hostname -s" }
+    ],
+    "merge": [
+        {
+            "output": "i3blocks.conf.symlink",
+            "input": [
+                "i3blocks.conf.base"
+            ]
+        }
+    ]
+}
