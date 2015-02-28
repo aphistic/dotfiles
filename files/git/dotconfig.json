@@ -1,0 +1,13 @@
+{
+    "vars": [
+        { "name": "host", "exec": "hostname -s" }
+    ],
+    "merge": [
+        {
+            "output": "gitconfig.symlink",
+            "input": [
+                "gitconfig.base"
+            ]
+        }
+    ]
+}
