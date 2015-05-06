@@ -55,6 +55,9 @@ URxvt*scrollBar: true
 URxvt*scrollBar_right: true
 URxvt*cursorBlink: true
 URxvt*cursorUnderline: true
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
 
 ! urxvt tabs settings:
 

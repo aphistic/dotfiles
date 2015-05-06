@@ -1,8 +1,13 @@
 {
-	"color_scheme": "Packages/Colorsublime - Themes/LastNight.tmTheme",
+	"color_scheme": "Packages/User/LastNight (SublimePythonIDE).tmTheme",
 	"ignored_packages":
 	[
 		"Vintage"
 	],
-	"theme": "Soda Dark 3.sublime-theme"
+	"theme": "Soda Dark 3.sublime-theme",
+	"ensure_newline_at_eof_on_save": true,
+    "tab_size": 4,
+    "translate_tabs_to_spaces": true,
+    "trim_trailing_white_space_on_save": true,
+    "use_tab_stops": true
 }
