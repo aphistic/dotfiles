@@ -9,7 +9,8 @@
 		"scrot",
 		"imagemagick",
 		"ctags",
-		"sysstat"
+		"sysstat",
+        "polkit-gnome"
 	],
 	"build": [
 		{

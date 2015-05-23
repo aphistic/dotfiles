@@ -6,7 +6,7 @@ import path
 import tempfile
 
 from platform import detect_platform
-from config import setup_configs, setup_links
+from config import setup_files
 
 
 def install_packages():
@@ -46,5 +46,4 @@ def install_packages():
 
 if __name__ == '__main__':
     install_packages()
-    setup_links()
-    setup_configs()
+    setup_files()
