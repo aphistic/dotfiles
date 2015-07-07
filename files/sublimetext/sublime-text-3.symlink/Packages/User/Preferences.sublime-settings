@@ -3,6 +3,7 @@
 	"bold_folder_labels": true,
 	"color_scheme": "Packages/User/Material-Theme (SublimePythonIDE).tmTheme",
 	"ensure_newline_at_eof_on_save": true,
+	"font_size": 10,
 	"font_options":
 	[
 		"gray_antialias"
