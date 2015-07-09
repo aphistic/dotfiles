@@ -15,6 +15,9 @@ Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'junegunn/vim-peekaboo'
 Plug 'junegunn/rainbow_parentheses.vim'
 
+Plug 'Valloric/YouCompleteMe', { 'for': ['cpp','c'],'do': './install.sh --clang-completer' }
+autocmd! User YouCompleteMe call youcompleteme#Enable()
+
 call plug#end()
 
 " ----------------------------
@@ -43,6 +46,9 @@ augroup rainbow_parens
     autocmd!
     autocmd FileType c RainbowParentheses
 augroup END
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
