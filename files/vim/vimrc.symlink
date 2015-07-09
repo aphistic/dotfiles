@@ -8,22 +8,46 @@ call plug#begin('~/.vim/plugged')
 Plug 'chriskempson/vim-tomorrow-theme'
 Plug 'junegunn/seoul256.vim'
 
+Plug 'bling/vim-airline'
+
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 
+Plug 'junegunn/vim-peekaboo'
+Plug 'junegunn/rainbow_parentheses.vim'
 
 call plug#end()
 
+" ----------------------------
+"  Plugin Settings
+" ----------------------------
+" airline
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts = 1
+let g:airline_left_sep = '»'
+let g:airline_left_sep = ''
+let g:airline_right_sep = '«'
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
 
-
-
-
-
-
+" RainbowParentheses
+augroup rainbow_parens
+    autocmd!
+    autocmd FileType c RainbowParentheses
+augroup END
 
 " ----------------------------------------------------------------------------
 "  Text Formatting
 " ----------------------------------------------------------------------------
-
+set bs=2
 set autoindent             " automatic indent new lines
 set smartindent            " be smart about it
 inoremap # X<BS>#
@@ -68,6 +92,7 @@ inoremap <Up> <C-o>gk
 "  UI
 " ----------------------------------------------------------------------------
 
+set mouse=a
 set ruler                  " show the cursor position all the time
 set noshowcmd              " don't display incomplete commands
 set nolazyredraw           " turn off lazy redraw
