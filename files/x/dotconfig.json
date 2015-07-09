@@ -1,6 +1,6 @@
 {
     "vars": [
-        { "name": "host", "exec": "hostname -s" }
+        { "name": "host", "exec": "hostname -s", "default": "default" }
     ],
     "merge": [
         {
