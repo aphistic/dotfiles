@@ -1,5 +1,25 @@
 set noswapfile
 
+" -----------------------------
+"  Plugins
+" -----------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'junegunn/seoul256.vim'
+
+Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+
+
+call plug#end()
+
+
+
+
+
+
+
+
 " ----------------------------------------------------------------------------
 "  Text Formatting
 " ----------------------------------------------------------------------------
@@ -60,7 +80,7 @@ set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
 set shortmess=filtIoOA     " shorten messages
 set report=0               " tell us about changes
 set nostartofline          " don't jump to the start of line when scrolling
-color molokai
+color Tomorrow-Night
 
 " ----------------------------------------------------------------------------
 " Visual Cues
