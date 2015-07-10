@@ -33,9 +33,9 @@ def install_packages():
         if not os.path.isfile(build['check_file']):
             continue
 
-        tmpcmd = tempfile.NamedTemporaryFile(delete=False)
+        tmpcmd = tempfile.NamedTemporaryFile(mode='wt', delete=False)
         for cmd in build['commands']:
-            tmpcmd.write('%s\n' % cmd)
+            tmpcmd.write('{}\n'.format(cmd))
         tmpcmd.close()
 
         os.chmod(tmpcmd.name, 0o755)
