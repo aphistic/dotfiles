@@ -57,8 +57,10 @@ def setup_files(source=None, dest=None):
             for m_in in merge['input']:
                 in_path = os.path.join(source, replace_vars(cfg_vars, m_in))
 
-                in_content = process_file(in_path, cfg_vars, source)
+                if not os.path.isfile(in_path):
+                    in_path = os.path.join(source, replace_vars(cfg_vars, m_in, True))
 
+                in_content = process_file(in_path, cfg_vars, source)
                 f_out.write('%s\n' % in_content)
 
     if source.endswith('.symlink'):
@@ -122,13 +124,20 @@ def setup_files(source=None, dest=None):
 def process_file(file_path, cfg_vars, base_path):
     with open(file_path, 'r') as f_in:
         in_content = ''.join(f_in.readlines())
-        in_content = replace_vars(cfg_vars, in_content)
+        base_content = replace_vars(cfg_vars, in_content)
 
         inc_matches = re_include.finditer(in_content)
         if inc_matches:
             for inc_match in inc_matches:
-                inc_path = os.path.join(base_path,
-                                        inc_match.group('path'))
+                inc_path = os.path.join(
+                    base_path,
+                    replace_vars(cfg_vars, inc_match.group('path')))
+
+                if not os.path.isfile(inc_path):
+                    inc_path = os.path.join(
+                        base_path,
+                        replace_vars(cfg_vars, inc_match.group('path'), True))
+
                 with open(inc_path, 'r') as f_inc:
                     in_content = re.sub(
                         inc_match.group(0),
@@ -144,8 +153,11 @@ def expand_vars(vars, path):
 
     for var in vars:
         val = var.get('value')
+        def_val = var.get('default')
+        ret[var['name']] = {}
         if val:
-            ret[var['name']] = val
+            ret[var['name']]['val'] = val
+            ret[var['name']]['default'] = def_val
             continue
 
         exec_cmd = var.get('exec')
@@ -153,7 +165,8 @@ def expand_vars(vars, path):
             try:
                 out_val = subprocess.check_output(
                     ('cd %s;' % path) + var['exec'], shell=True)
-                ret[var['name']] = out_val.decode('utf-8').strip()
+                ret[var['name']]['val'] = out_val.decode('utf-8').strip()
+                ret[var['name']]['default'] = def_val
                 continue
 
             except subprocess.CalledProcessError:
@@ -161,14 +174,19 @@ def expand_vars(vars, path):
                       (var['name'], var['exec']))
                 sys.exit(1)
 
-        ret[var['name']] = ''
+        ret[var['name']]['val'] = ''
+        ret[var['name']]['default'] = def_val
 
     return ret
 
 
-def replace_vars(vars, input):
+def replace_vars(vars, input, defaults=False):
     for var_name in vars:
-        input = re.sub('{{%s}}' % var_name, vars[var_name], input)
+        val = vars[var_name]['val']
+        if defaults and vars[var_name]['default']:
+            val = vars[var_name]['default']
+
+    input = re.sub('{{%s}}' % var_name, val, input)
     return input
 
 if __name__ == '__main__':
