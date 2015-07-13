@@ -1,0 +1,5 @@
+workspace 1 output DisplayPort-1
+workspace 2 output DisplayPort-3
+workspace 3 output DisplayPort-2
+
+exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
