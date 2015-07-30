@@ -2,6 +2,7 @@ Material Theme
 GoSublime
 SublimePythonIDE
 ColorSublime
+TrailingSpaces
 
 ColorSublime - Tomorrow Night
 
