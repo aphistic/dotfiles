@@ -17,7 +17,8 @@
     "overlay_scroll_bars": "enabled",
     "tab_size": 4,
     "theme": "Material-Theme-Darker.sublime-theme",
-    "use_tab_stops": true
+    "use_tab_stops": true,
+    "show_encoding": true
     /*dpi setting for akame*/
 }
 
