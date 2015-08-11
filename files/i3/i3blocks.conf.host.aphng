@@ -33,7 +33,7 @@ interval=60
 
 [disk]
 label=V
-instance=/opt/vms
+instance=/home/aphistic/vms
 command=/usr/local/libexec/i3blocks/disk
 interval=60
 

@@ -10,10 +10,12 @@ Plug 'junegunn/seoul256.vim'
 
 Plug 'bling/vim-airline'
 
-Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
+Plug 'tpope/vim-vinegar'
 
 Plug 'junegunn/vim-peekaboo'
-Plug 'junegunn/rainbow_parentheses.vim'
+
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'kien/ctrlp.vim'
 
 Plug 'Valloric/YouCompleteMe', { 'for': ['cpp','c','go','python'],'do': './install.sh --clang-completer' }
 autocmd! User YouCompleteMe call youcompleteme#Enable()
@@ -27,7 +29,7 @@ call plug#end()
 if !exists('g:airline_symbols')
 let g:airline_symbols = {}
 endif
-let g:airline_powerline_fonts = 1
+let g:airline_powerline_fonts = 0
 let g:airline_left_sep = '»'
 let g:airline_left_sep = ''
 let g:airline_right_sep = '«'
@@ -42,9 +44,12 @@ let g:airline_symbols.paste = '∥'
 let g:airline_symbols.whitespace = 'Ξ'
 
 " RainbowParentheses
-augroup rainbow_parens
+augroup RainbowParens
     autocmd!
-    autocmd FileType c RainbowParentheses
+    au VimEnter * RainbowParenthesesToggle
+    au VimEnter * RainbowParenthesesLoadRound
+    au VimEnter * RainbowParenthesesLoadSquare
+    au VimEnter * RainbowParenthesesLoadBraces
 augroup END
 
 " YouCompleteMe
@@ -93,6 +98,9 @@ vnoremap <Down> gj
 vnoremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
 
 " ----------------------------------------------------------------------------
 "  UI
