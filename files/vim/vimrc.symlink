@@ -19,6 +19,7 @@ Plug 'kien/ctrlp.vim'
 
 Plug 'Valloric/YouCompleteMe', { 'for': ['cpp','c','go','python'],'do': './install.sh --clang-completer' }
 autocmd! User YouCompleteMe call youcompleteme#Enable()
+Plug 'fatih/vim-go'
 
 call plug#end()
 
@@ -130,9 +131,17 @@ set mat=5                  " duration to show matching brace (1/10 sec)
 set incsearch              " do incremental searching
 set laststatus=2           " always show the status line
 set ignorecase             " ignore case when searching
-set nohlsearch             " don't highlight searches
+"set nohlsearch             " don't highlight searches
 set visualbell             " shut the fuck up
+set cursorline
+set cursorcolumn
 
+" File Types
+
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
 
 " ---------------------------------------------------------------------------
 "  Strip all trailing whitespace in file

@@ -28,3 +28,5 @@ for config_file ($ZSH/**/completion.zsh) source $config_file
 
 # set up rbenv if it's available
 if which rbenv > /dev/null; then eval "$(rbenv init -)"; fi
+
+export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
