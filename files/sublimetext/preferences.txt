@@ -18,7 +18,9 @@
     "tab_size": 4,
     "theme": "Material-Theme-Darker.sublime-theme",
     "use_tab_stops": true,
+    "translate_tabs_to_spaces": true,
     "show_encoding": true
     /*dpi setting for akame*/
+    "dpi_scale": 1.5
 }
 
