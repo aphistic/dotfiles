@@ -10,7 +10,8 @@
 		"imagemagick",
 		"ctags",
 		"sysstat",
-        "polkit-gnome"
+        "polkit-gnome",
+        "rofi"
 	],
 	"build": [
 		{
