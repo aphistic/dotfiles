@@ -22,5 +22,6 @@
     "translate_tabs_to_spaces": true,
     "show_encoding": true
     /*dpi setting for akame*/
+    "dpi_scale": 1.5
 }
 
