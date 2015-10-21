@@ -12,7 +12,7 @@ re_include = re.compile(r'{{include\s(?P<path>[\w/{}\.]+)}}', re.IGNORECASE)
 
 
 # Sets up any symlinks in the files directory
-def setup_files(source=None, dest=None):
+def setup_files(source=None, dest=None, skip_traverse=False):
 
     global overwrite_all
 
@@ -23,6 +23,8 @@ def setup_files(source=None, dest=None):
         )
     )
     dest = dest or os.path.expanduser('~')
+
+    source_base = os.path.basename(source)
 
     if not os.path.exists(source):
         return False
@@ -36,6 +38,7 @@ def setup_files(source=None, dest=None):
     cur_config = None
     cfg_vars = {}
     cfg_merge = []
+    cfg_skip = []
     cur_cfg_path = os.path.join(source, 'dotconfig.json')
     if os.path.isfile(cur_cfg_path):
         print('Reading config %s' % cur_cfg_path)
@@ -47,6 +50,7 @@ def setup_files(source=None, dest=None):
             )
 
             cfg_merge = cur_config.get('merge', [])
+            cfg_skip = cur_config.get('skip_traverse', [])
 
     for merge in cfg_merge:
         m_out = replace_vars(cfg_vars, merge['output'])
@@ -62,7 +66,7 @@ def setup_files(source=None, dest=None):
 
                 in_content = process_file(in_path, cfg_vars, source)
                 f_out.write('%s\n' % in_content)
-
+    
     if source.endswith('.symlink'):
         sym_from = source
         sym_to = os.path.join(dest, '.'+item[:-8])
@@ -102,7 +106,7 @@ def setup_files(source=None, dest=None):
         print('Symlinking %s to %s' % (sym_from, sym_to))
         os.symlink(sym_from, sym_to)
 
-        if os.path.isdir(source):
+        if os.path.isdir(source) and not skip_traverse:
             for item in os.listdir(source):
                 p = os.path.join(source, item)
                 res = setup_files(p, dest)
@@ -114,7 +118,7 @@ def setup_files(source=None, dest=None):
     elif os.path.isdir(source):
         for item in os.listdir(source):
             p = os.path.join(source, item)
-            res = setup_files(p, dest)
+            res = setup_files(p, dest, item in cfg_skip)
             if not res:
                 return False
 
