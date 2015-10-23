@@ -5,4 +5,5 @@ xrdb ~/.Xresources
 
 {{include xinitrc.host.{{host}}}}
 
+exec dunst &
 exec i3

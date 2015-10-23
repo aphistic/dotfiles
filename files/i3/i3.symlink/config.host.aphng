@@ -2,3 +2,4 @@ exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
 workspace 1 output DisplayPort-1
 workspace 5 output DisplayPort-3
 workspace 9 output DisplayPort-2
+workspace 11 output DisplayPort-0

@@ -1,0 +1,2 @@
+config.symlink/*
+!config.symlink/dunst
