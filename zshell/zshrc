@@ -1,0 +1,14 @@
+export ZSHD=$HOME/.zsh.d
+
+autoload -U compinit && compinit
+
+for config_file ($ZSHD/**/*.zsh) source $config_file
+
+unsetopt correct
+
+if [[ -a $HOME/.localrc ]]
+then
+  source $HOME/.localrc
+fi
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

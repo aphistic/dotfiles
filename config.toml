@@ -1,0 +1,6 @@
+[tasks.default]
+    links = [
+          [".zshrc", "zshell/zshrc"],
+
+          [".spacemacs", "spacemacs/spacemacs"],
+    ]
