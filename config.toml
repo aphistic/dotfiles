@@ -1,6 +1,20 @@
 [tasks.default]
     links = [
-          [".zshrc", "zshell/zshrc"],
+        [".zshrc", "zshell/zshrc"],
+        [".zsh.d/functions", "zshell/functions"],
+        [".zsh.d/alias.zsh", "zshell/alias.zsh"],
+        [".zsh.d/bindings.zsh", "zshell/bindings.zsh"],
+        [".zsh.d/config.zsh", "zshell/config.zsh"],
+        [".zsh.d/path.zsh", "zshell/path.zsh"],
+        [".zsh.d/prompt.zsh", "zshell/prompt.zsh"],
+        [".zsh.d/window.zsh", "zshell/window.zsh"],
 
-          [".spacemacs", "spacemacs/spacemacs"],
+        [".zsh.d/go.zsh", "go/go.zsh"],
+
+        [".zsh.d/rust.zsh", "rust/rust.zsh"],
+
+        [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
+        [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
+
+        [".spacemacs", "spacemacs/spacemacs"],
     ]
