@@ -1,8 +1,33 @@
 #!/bin/bash
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+set -e
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
-tar xf homemaker_linux_amd64.tar.gz
-rm homemaker
-ln -s homemaker_linux_amd64/homemaker homemaker
+
+UNAMESTR=$(uname)
+
+echo $
+
+if [ $UNAMESTR == "Darwin" ]; then
+    echo "Processing Darwin bootstrap"
+    tar xf homemaker_darwin_amd64.tar.gz
+    if [ -f homemaker ]; then
+        rm homemaker
+    fi
+    ln -s homemaker_darwin_amd64/homemaker homemaker
+elif [ $UNAMESTR == "Linux" ]; then
+    ARCH=$(uname -m)
+    LINUX_TYPE="amd64"
+    HM_PACKAGE=homemaker_linux_amd64
+    if [ $ARCH == "i686" ]; then
+	LINUX_TYPE="386"
+	HM_PACKAGE=homemaker_linux_386
+    fi
+    echo "Processing Linux ($LINUX_TYPE) bootstrap"
+    tar xf ${HM_PACKAGE}.tar.gz
+    if [ -f homemaker ]; then
+        rm homemaker
+    fi
+    ln -s ${HM_PACKAGE}/homemaker homemaker
+fi
