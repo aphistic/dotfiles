@@ -7,8 +7,6 @@ cd $DIR
 
 UNAMESTR=$(uname)
 
-echo $
-
 if [ $UNAMESTR == "Darwin" ]; then
     echo "Processing Darwin bootstrap"
     tar xf homemaker_darwin_amd64.tar.gz
