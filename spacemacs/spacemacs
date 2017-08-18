@@ -50,6 +50,7 @@ values."
      ruby
      rust
      org
+     osx
      yaml
      javascript
      ;; better-defaults
