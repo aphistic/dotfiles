@@ -1,5 +1,7 @@
 [macros.install__ubuntu]
     prefix = ["sudo", "apt-get", "install", "-y"]
+[macros.install__arch]
+    prefix = ["sudo", "pacman", "-S", "--noconfirm"]
 
 [tasks.common]
     cmds = [
@@ -38,7 +40,25 @@
         ["@install", "xinit", "i3-wm"]
     ]
     links = [
+        [".config/polybar/config", "polybar/config"],
+        [".config/polybar/launch.sh", "polybar/launch.sh"],
+
         [".config/i3/i3lock.sh", "i3/i3lock.sh"],
         [".config/i3/config", "i3/config"],
     ]
 
+[tasks.ace]
+    cmds = [
+        [
+            "@install",
+            "i3-wm", "i3blocks", "i3lock",
+            "xorg-xinit", "xorg-xrandr",
+        ]
+    ]
+    links = [
+        [".config/polybar/config", "polybar/config"],
+        [".config/polybar/launch.sh", "polybar/launch.sh"],
+
+        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
+        [".config/i3/config", "i3/config"],
+    ]
