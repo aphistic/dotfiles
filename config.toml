@@ -5,7 +5,7 @@
 
 [tasks.base]
     cmds = [
-	["@install", "zsh", "emacs", "npm"],
+	["@install", "zsh", "emacs", "npm", "fzf"],
         ["chsh", "-s", "/bin/zsh"],
         ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
         ["sudo", "npm", "install", "-g", "tern"],
