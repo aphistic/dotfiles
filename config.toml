@@ -32,6 +32,34 @@
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
     ]
 
+[tasks.base_desktop]
+    deps = ["base"]
+    cmds = [
+        [
+            "@install",
+            "i3-wm", "i3blocks", "i3lock",
+            "xorg", "xorg-xinit", "xorg-xrandr",
+            "rxvt-unicode",
+        ]
+    ]
+    links = [
+        [".config/polybar/config", "polybar/config"],
+        [".config/polybar/launch.sh", "polybar/launch.sh"],
+
+        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
+        [".config/i3/config", "i3/config"],
+
+	[".xmodmaprc", "x/xmodmaprc"],
+	[".Xresources", "x/Xresources"],
+	[".xinitrc", "x/xinitrc"],
+    ]
+
+[tasks.archjunk]
+    deps = ["base_desktop"]
+    cmds = [
+        ["@install", "virtualbox-guest-modules-arch", "xorg-drivers"],
+    ]
+
 [tasks.ubuntujunk]
     deps = ["base"]
     cmds = [
@@ -46,18 +74,4 @@
     ]
 
 [tasks.ace]
-    deps = ["base"]
-    cmds = [
-        [
-            "@install",
-            "i3-wm", "i3blocks", "i3lock",
-            "xorg-xinit", "xorg-xrandr",
-        ]
-    ]
-    links = [
-        [".config/polybar/config", "polybar/config"],
-        [".config/polybar/launch.sh", "polybar/launch.sh"],
-
-        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
-        [".config/i3/config", "i3/config"],
-    ]
+    deps = ["base_desktop"]
