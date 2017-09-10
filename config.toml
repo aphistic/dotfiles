@@ -12,6 +12,10 @@
 [tasks.default]
     deps = ["common"]
     links = [
+        [".gitconfig", "git/gitconfig"],
+
+        [".spacemacs", "spacemacs/spacemacs"],
+
         [".zshrc", "zshell/zshrc"],
         [".zsh.d/functions", "zshell/functions"],
         [".zsh.d/alias.zsh", "zshell/alias.zsh"],
@@ -27,6 +31,4 @@
 
         [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
-
-        [".spacemacs", "spacemacs/spacemacs"],
     ]
