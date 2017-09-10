@@ -1,4 +1,16 @@
+[macros.install__ubuntu]
+    prefix = ["sudo", "apt-get", "install", "-y"]
+
+[tasks.common]
+    cmds = [
+	["@install", "zsh", "emacs", "npm"],
+        ["chsh", "-s", "/bin/zsh"],
+        ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
+        ["sudo", "npm", "install", "-g", "tern"]
+    ]
+
 [tasks.default]
+    deps = ["common"]
     links = [
         [".zshrc", "zshell/zshrc"],
         [".zsh.d/functions", "zshell/functions"],
