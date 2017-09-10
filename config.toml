@@ -6,7 +6,7 @@
 	["@install", "zsh", "emacs", "npm"],
         ["chsh", "-s", "/bin/zsh"],
         ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
-        ["sudo", "npm", "install", "-g", "tern"]
+        ["sudo", "npm", "install", "-g", "tern"],
     ]
 
 [tasks.default]
@@ -32,3 +32,13 @@
         [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
     ]
+
+[tasks.ubuntujunk]
+    cmds = [
+        ["@install", "xinit", "i3-wm"]
+    ]
+    links = [
+        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
+        [".config/i3/config", "i3/config"],
+    ]
+
