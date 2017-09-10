@@ -3,16 +3,13 @@
 [macros.install__arch]
     prefix = ["sudo", "pacman", "-S", "--noconfirm"]
 
-[tasks.common]
+[tasks.base]
     cmds = [
 	["@install", "zsh", "emacs", "npm"],
         ["chsh", "-s", "/bin/zsh"],
         ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
         ["sudo", "npm", "install", "-g", "tern"],
     ]
-
-[tasks.default]
-    deps = ["common"]
     links = [
         [".gitconfig", "git/gitconfig"],
 
@@ -36,6 +33,7 @@
     ]
 
 [tasks.ubuntujunk]
+    deps = ["base"]
     cmds = [
         ["@install", "xinit", "i3-wm"]
     ]
@@ -48,6 +46,7 @@
     ]
 
 [tasks.ace]
+    deps = ["base"]
     cmds = [
         [
             "@install",
