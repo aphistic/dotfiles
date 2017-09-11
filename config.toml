@@ -5,7 +5,7 @@
 
 [tasks.base]
     cmds = [
-	["@install", "zsh", "emacs", "npm", "fzf"],
+	      ["@install", "zsh", "emacs", "npm", "fzf"],
         ["chsh", "-s", "/bin/zsh"],
         ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
         ["sudo", "npm", "install", "-g", "tern"],
@@ -32,7 +32,7 @@
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
     ]
 
-[tasks.base_desktop]
+[tasks.desktop_install]
     deps = ["base"]
     cmds = [
         [
@@ -42,26 +42,34 @@
             "rxvt-unicode",
         ]
     ]
-    links = [
+
+[tasks.desktop]
+    templates = [
         [".config/polybar/config", "polybar/config"],
         [".config/polybar/launch.sh", "polybar/launch.sh"],
 
-        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
         [".config/i3/config", "i3/config"],
-
-	[".xmodmaprc", "x/xmodmaprc"],
-	[".Xresources", "x/Xresources"],
-	[".xinitrc", "x/xinitrc"],
     ]
+    links = [
+        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
+
+        [".xmodmaprc", "x/xmodmaprc"],
+        [".Xresources", "x/Xresources"],
+        [".xinitrc", "x/xinitrc"],
+    ]
+    cmds_post = [
+        ["chmod", "755", ".config/polybar/launch.sh"],
+    ]
+    
 
 [tasks.archjunk]
-    deps = ["base_desktop"]
+    deps = ["desktop"]
     cmds = [
         ["@install", "virtualbox-guest-modules-arch", "xorg-drivers"],
     ]
 
 [tasks.ubuntujunk]
-    deps = ["base"]
+    deps = ["desktop"]
     cmds = [
         ["@install", "xinit", "i3-wm"]
     ]
@@ -73,5 +81,8 @@
         [".config/i3/config", "i3/config"],
     ]
 
+[tasks.aphng]
+    deps = ["desktop"]
+
 [tasks.ace]
-    deps = ["base_desktop"]
+    deps = ["desktop"]

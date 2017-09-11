@@ -9,3 +9,9 @@ while pgrep -x polybar >/dev/null; do sleep 1; done
 polybar first &
 polybar second &
 polybar third &
+
+{{ if eq .Env.HM_TASK "aphng" }}
+
+polybar fourth &
+
+{{ end }}

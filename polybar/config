@@ -1,10 +1,24 @@
 [vars]
+{{ if eq .Env.HM_TASK "aphng" }}
+
+first-screen = DisplayPort-1
+second-screen = DisplayPort-2
+third-screen = DisplayPort-3
+fourth-screen = DisplayPort-0
+eth-adapter = eth0
+
+{{ else if eq .Env.HM_TASK "ace" }}
+
 first-screen = DVI-I-1
 second-screen = HDMI-0
 third-screen = DVI-D-0
 fourth-screen =
-
 eth-adapter = enp0s31f6
+
+{{ else }}
+
+
+{{ end }}
 
 font-0 = Source Code Pro:size=9;0
 
@@ -12,7 +26,7 @@ font-0 = Source Code Pro:size=9;0
 background = #222
 background-alt = #444
 foreground = #dfdfdf
-foreground-alt = #555
+foreground-alt = #888
 primary = #ffb52a
 secondary = #e60053
 alert = #bd2c40
@@ -39,8 +53,13 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
+{{ if eq .Env.HM_TASK "aphng" }}
 modules-left = i3
-modules-right = filesystem volume cpu memory eth date
+modules-right = fs_root fs_home fs_docker fs_home_vms cpu memory eth date
+{{ else }}
+modules-left = i3
+modules-right = fs_root volume cpu memory eth date
+{{ end }}
 
 tray-position = right
 tray-padding = 2
@@ -132,16 +151,43 @@ modules-right = ${bar/first.modules-right}
 scroll-up = ${bar/first.scroll-up}
 scroll-down = ${bar/first.scroll-down}
 
-[module/filesystem]
+[module/fs_root]
 type = internal/fs
-interval = 25
+interval = 30
 
 mount-0 = /
-mount-1 = /home
-mount-2 = /var/lib/docker
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%%
-label-unmounted = %mountpoint% not mounted
+label-mounted = %{F#0a81f5}R%{F-}: %free%
+label-unmounted = R: unmounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/fs_home]
+type = internal/fs
+interval = 30
+
+mount-0 = /home
+
+label-mounted = %{F#0a81f5}H%{F-}: %free%
+label-unmounted = H: unmounted
+label-unmounted-foreground = ${colors.foreground-alt}
+[module/fs_docker]
+type = internal/fs
+interval = 30
+
+mount-0 = /var/lib/docker
+
+label-mounted = %{F#0a81f5}D%{F-}: %free%
+label-unmounted = D: unmounted
+label-unmounted-foreground = ${colors.foreground-alt}
+
+[module/fs_home_vms]
+type = internal/fs
+interval = 30
+
+mount-0 = /home/aphistic/vms
+
+label-mounted = %{F#0a81f5}V%{F-}: %free%
+label-unmounted = V: unmounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
 [module/i3]
@@ -181,18 +227,45 @@ label-urgent-padding = 1
 [module/cpu]
 type = internal/cpu
 interval = 2
+
+format = <label> <ramp-coreload>
+
 format-prefix = "cpu "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #f90000
+
 label = %percentage%%
+
+ramp-coreload-0 = ▁
+ramp-coreload-1 = ▂
+ramp-coreload-2 = ▃
+ramp-coreload-3 = ▄
+ramp-coreload-4 = ▅
+ramp-coreload-5 = ▆
+ramp-coreload-6 = ▇
+ramp-coreload-7 = █
 
 [module/memory]
 type = internal/memory
 interval = 2
+
+format = <label> <bar-used>
+
 format-prefix = "mem "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #4bffdc
-label = %percentage_used%%
+
+label = %gb_free%
+
+bar-used-indicator = ▐
+bar-used-width = 10
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
 
 [module/wlan]
 type = internal/network
