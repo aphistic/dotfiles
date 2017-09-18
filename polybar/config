@@ -54,11 +54,20 @@ module-margin-left = 1
 module-margin-right = 2
 
 {{ if eq .Env.HM_TASK "aphng" }}
+
 modules-left = i3
 modules-right = fs_root fs_home fs_docker fs_home_vms cpu memory eth date
+
+{{ else if eq .Env.HM_TASK "ace" }}
+
+modules-left = i3
+modules-right = fs_root fs_home fs_docker cpu memory eth date
+
 {{ else }}
+
 modules-left = i3
 modules-right = fs_root volume cpu memory eth date
+
 {{ end }}
 
 tray-position = right

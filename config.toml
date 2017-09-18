@@ -49,16 +49,18 @@
         [".config/polybar/launch.sh", "polybar/launch.sh"],
 
         [".config/i3/config", "i3/config"],
+
+        [".xinitrc", "x/xinitrc"],
     ]
     links = [
         [".config/i3/i3lock.sh", "i3/i3lock.sh"],
 
         [".xmodmaprc", "x/xmodmaprc"],
         [".Xresources", "x/Xresources"],
-        [".xinitrc", "x/xinitrc"],
     ]
     cmds_post = [
         ["chmod", "755", ".config/polybar/launch.sh"],
+        ["chmod", "755", ".xinitrc"],
     ]
     
 
