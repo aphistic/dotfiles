@@ -267,6 +267,7 @@ format-underline = #4bffdc
 label = %gb_free%
 
 bar-used-indicator = ▐
+bar-used-indicator-foreground = ${colors.foreground}
 bar-used-width = 10
 bar-used-foreground-0 = #55aa55
 bar-used-foreground-1 = #557755
@@ -326,6 +327,7 @@ format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
 label = %date% %time%
+label-foreground = ${colors.foreground}
 
 [module/volume]
 type = internal/volume
