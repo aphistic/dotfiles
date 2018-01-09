@@ -5,7 +5,7 @@ first-screen = DisplayPort-1
 second-screen = DisplayPort-2
 third-screen = DisplayPort-3
 fourth-screen = DisplayPort-0
-eth-adapter = eth0
+eth-adapter = eno1
 
 {{ else if eq .Env.HM_TASK "ace" }}
 
