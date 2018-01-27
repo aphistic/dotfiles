@@ -89,6 +89,9 @@
 [tasks.ace]
     deps = ["desktop"]
 
+[tasks.akame]
+    deps = ["desktop"]
+
 [tasks.kiki]
     deps = ["base"]
 
