@@ -5,13 +5,15 @@
 
 [tasks.base]
     cmds = [
-	      ["@install", "zsh", "emacs", "npm", "fzf"],
+        ["@install", "zsh", "emacs", "npm", "fzf"],
         ["chsh", "-s", "/bin/zsh"],
         ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
         ["sudo", "npm", "install", "-g", "tern"],
     ]
     links = [
         [".gitconfig", "git/gitconfig"],
+
+        [".tmux.conf", "tmux/tmux.conf"],
 
         [".spacemacs", "spacemacs/spacemacs"],
 
@@ -39,7 +41,7 @@
             "@install",
             "i3-wm", "i3blocks", "i3lock",
             "xorg", "xorg-xinit", "xorg-xrandr",
-            "rxvt-unicode",
+            "rxvt-unicode", "xcursor-dmz",
         ]
     ]
 
@@ -84,7 +86,7 @@
     ]
 
 [tasks.aphng]
-    deps = ["desktop"]
+    deps = ["base", "desktop"]
 
 [tasks.ace]
     deps = ["desktop"]
