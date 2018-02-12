@@ -1,26 +1,42 @@
 [vars]
 {{ if eq .Env.HM_TASK "aphng" }}
 
+dpi-var = 96
+
 first-screen = DisplayPort-1
 second-screen = DisplayPort-2
 third-screen = DisplayPort-3
 fourth-screen = DisplayPort-0
 eth-adapter = eno1
+font-0 = Source Code Pro:size=9;0
 
 {{ else if eq .Env.HM_TASK "ace" }}
+
+dpi-var = 96
 
 first-screen = DVI-I-1
 second-screen = HDMI-0
 third-screen = DVI-D-0
 fourth-screen =
 eth-adapter = enp0s31f6
+font-0 = Source Code Pro:size=9;0
+
+{{ else if eq .Env.HM_TASK "akame" }}
+
+dpi-var = 160
+
+first-screen = eDP-1
+eth-adapter = wlp3s0
+font-0 = Source Code Pro:size=9;2
 
 {{ else }}
 
+dpi-var = 96
+
+font-0 = Source Code Pro:size=9;0
 
 {{ end }}
 
-font-0 = Source Code Pro:size=9;0
 
 [colors]
 background = #222
@@ -34,7 +50,8 @@ alert = #bd2c40
 [bar/first]
 monitor = ${vars.first-screen}
 width = 100%
-height = 20
+
+dpi = ${vars.dpi-var}
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -59,6 +76,11 @@ modules-left = i3
 modules-right = fs_root fs_home fs_docker fs_home_vms cpu memory eth date
 
 {{ else if eq .Env.HM_TASK "ace" }}
+
+modules-left = i3
+modules-right = fs_root fs_home fs_docker cpu memory eth date
+
+{{ else if eq .Env.HM_TASK "akame" }}
 
 modules-left = i3
 modules-right = fs_root fs_home fs_docker cpu memory eth date

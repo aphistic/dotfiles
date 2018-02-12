@@ -1,3 +1,9 @@
+{{ if eq .Env.HM_TASK "akame" }}
+
+Xft.dpi: 160
+
+{{ end }}
+
 Xcursor.theme:    DMZ-White
 
 !urxvt color scheme:
@@ -34,9 +40,17 @@ URxvt*color15 : #EEEEEC
 
 !urxvt fonts: 
 
+{{ if eq .Env.HM_TASK "akame" }}
+
+URxvt*font: xft:Hack:pixelsize=20
+URxvt*boldFont: xft:Hack:bold:pixelsize=20
+
+{{ else }}
+
 URxvt*font: xft:Hack:pixelsize=12
 URxvt*boldFont: xft:Hack:bold:pixelsize=12
 
+{{ end }}
 
 !urxvt extensions:
 
@@ -70,6 +84,11 @@ URxvt.tabbed.new-button:  no
 URxvt.tabbed.title: no
 
 ! Rofi settings
+{{ if eq .Env.HM_TASK "akame" }}
+
+rofi.dpi: 160
+
+{{ end }}
 rofi.bw: 2
 rofi.padding: 2
 rofi.color-enabled: true
