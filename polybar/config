@@ -101,7 +101,6 @@ scroll-down = i3wm-wsprev
 [bar/second]
 monitor = ${vars.second-screen}
 width = ${bar/first.width}
-height = ${bar/first.height}
 
 background = ${bar/first.background}
 foreground = ${bar/first.foreground}
@@ -129,7 +128,6 @@ scroll-down = ${bar/first.scroll-down}
 [bar/third]
 monitor = ${vars.third-screen}
 width = ${bar/first.width}
-height = ${bar/first.height}
 
 background = ${bar/first.background}
 foreground = ${bar/first.foreground}
@@ -157,7 +155,6 @@ scroll-down = ${bar/first.scroll-down}
 [bar/fourth]
 monitor = ${vars.fourth-screen}
 width = ${bar/first.width}
-height = ${bar/first.height}
 
 background = ${bar/first.background}
 foreground = ${bar/first.foreground}

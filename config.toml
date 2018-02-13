@@ -87,7 +87,7 @@
     ]
 
 [tasks.aphng]
-    deps = ["base", "desktop"]
+    deps = ["desktop"]
 
 [tasks.ace]
     deps = ["desktop"]

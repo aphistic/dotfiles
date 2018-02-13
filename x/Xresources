@@ -2,7 +2,19 @@
 
 Xft.dpi: 160
 
+{{ else }}
+
+Xft.dpi: 96
+
 {{ end }}
+
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
 
 Xcursor.theme:    DMZ-White
 

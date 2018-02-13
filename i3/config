@@ -173,6 +173,8 @@ bindsym $mod+r mode "resize"
 bar {
     status_command i3blocks
 
+    font xft:Noto Sans 10
+
     position top
 }
 
