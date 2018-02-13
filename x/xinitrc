@@ -15,5 +15,4 @@ xrandr --output DVI-I-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal 
 {{ end }}
 
 exec dunst &
-exec ~/.config/polybar/launch.sh &
 exec i3

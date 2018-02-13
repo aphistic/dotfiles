@@ -51,6 +51,7 @@
         [".config/polybar/launch.sh", "polybar/launch.sh"],
 
         [".config/i3/config", "i3/config"],
+        [".i3blocks.conf", "i3/i3blocks.conf"],
 
         [".xinitrc", "x/xinitrc"],
         [".Xresources", "x/Xresources"],
