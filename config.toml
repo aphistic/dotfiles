@@ -58,6 +58,8 @@
         [".config/i3/config", "i3/config"],
         [".i3blocks.conf", "i3/i3blocks.conf"],
 
+        [".config/dunst/dunstrc", "dunst/dunstrc"],
+
         [".xinitrc", "x/xinitrc"],
         [".Xresources", "x/Xresources"],
     ]
