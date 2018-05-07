@@ -45,6 +45,7 @@ values."
      markdown
      auto-completion
      emacs-lisp
+     protobuf
      python
      shell-scripts
      ruby
