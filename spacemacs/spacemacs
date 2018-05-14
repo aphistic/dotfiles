@@ -47,6 +47,7 @@ values."
      emacs-lisp
      protobuf
      python
+     sql
      shell-scripts
      ruby
      rust
