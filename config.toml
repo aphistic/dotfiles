@@ -13,9 +13,11 @@
     links = [
         [".gitconfig", "git/gitconfig"],
 
-        [".tmux.conf", "tmux/tmux.conf"],
-
         [".spacemacs", "spacemacs/spacemacs"],
+        [".spacemacs", "spacemacs/spacemacs"],
+
+        [".terraformrc", "terraform/terraformrc"],
+        [".tmux.conf", "tmux/tmux.conf"],
 
         [".zshrc", "zshell/zshrc"],
         [".zsh.d/functions", "zshell/functions"],
