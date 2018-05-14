@@ -3,20 +3,25 @@
 [macros.install__arch]
     prefix = ["sudo", "pacman", "-S", "--noconfirm"]
 
-[tasks.base]
+[tasks.base_install]
     cmds = [
         ["@install", "zsh", "emacs", "npm", "fzf"],
         ["chsh", "-s", "/bin/zsh"],
         ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
         ["sudo", "npm", "install", "-g", "tern"],
     ]
+
+[tasks.base]
+    templates = [
+        [".spacemacs", "spacemacs/spacemacs"],
+    ]
     links = [
         [".gitconfig", "git/gitconfig"],
 
         [".spacemacs", "spacemacs/spacemacs"],
-        [".spacemacs", "spacemacs/spacemacs"],
 
         [".terraformrc", "terraform/terraformrc"],
+
         [".tmux.conf", "tmux/tmux.conf"],
 
         [".zshrc", "zshell/zshrc"],
@@ -37,23 +42,27 @@
     ]
 
 [tasks.desktop_install]
-    deps = ["base"]
+    deps = ["base_install"]
     cmds = [
         [
             "@install",
             "i3-wm", "i3blocks", "i3lock",
             "xorg", "xorg-xinit", "xorg-xrandr",
             "rxvt-unicode", "xcursor-dmz",
+            "otf-font-awesome",
         ]
     ]
 
 [tasks.desktop]
+    deps = ["base"]
     templates = [
         [".config/polybar/config", "polybar/config"],
         [".config/polybar/launch.sh", "polybar/launch.sh"],
 
         [".config/i3/config", "i3/config"],
         [".i3blocks.conf", "i3/i3blocks.conf"],
+
+        [".config/dunst/dunstrc", "dunst/dunstrc"],
 
         [".xinitrc", "x/xinitrc"],
         [".Xresources", "x/Xresources"],
