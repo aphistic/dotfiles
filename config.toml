@@ -29,6 +29,8 @@
         [".zsh.d/prompt.zsh", "zshell/prompt.zsh"],
         [".zsh.d/window.zsh", "zshell/window.zsh"],
 
+        [".zsh.d/gcloud.zsh", "gcloud/gcloud.zsh"],
+
         [".zsh.d/go.zsh", "go/go.zsh"],
 
         [".zsh.d/rust.zsh", "rust/rust.zsh"],
