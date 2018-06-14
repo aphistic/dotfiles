@@ -1,0 +1,18 @@
+FT2_SUBPIXEL_HINTING=1
+
+xmodmap ~/.xmodmaprc
+xrdb ~/.Xresources
+
+{{ if eq .Env.HM_TASK "aphng" }}
+
+#xrandr --setprovideroutputsource 1 0
+xrandr --output DisplayPort-1 --primary --mode 1920x1080 --pos 3840x0 --rotate normal --output DisplayPort-3 --mode 1920x1080 --pos 5760x0 --rotate right --output DisplayPort-2 --mode 1920x1080 --pos 1920x0 --rotate normal --output DisplayPort-0 --mode 1920x1080 --pos 0x0 --rotate normal
+
+{{ else if eq .Env.HM_TASK "ace" }}
+
+xrandr --output DVI-I-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-0 --mode 1920x1080 --pos 0x0 --rotate normal --output DVI-D-0 --mode 1920x1080 --pos 3840x0 --rotate normal
+
+{{ end }}
+
+exec dunst &
+exec i3

@@ -1,0 +1,6 @@
+[user]
+	name = Erik Davidson
+	email = erik@erikd.org
+
+[core]
+	editor = vim

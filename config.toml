@@ -1,0 +1,113 @@
+[macros.install__ubuntu]
+    prefix = ["sudo", "apt-get", "install", "-y"]
+[macros.install__arch]
+    prefix = ["sudo", "pacman", "-S", "--noconfirm"]
+
+[tasks.base_install]
+    cmds = [
+        ["@install", "zsh", "emacs", "npm", "fzf"],
+        ["chsh", "-s", "/bin/zsh"],
+        ["git", "clone", "https://github.com/syl20bnr/spacemacs", "${HM_DEST}/.emacs.d"],
+        ["sudo", "npm", "install", "-g", "tern"],
+    ]
+
+[tasks.base]
+    templates = [
+        [".spacemacs", "spacemacs/spacemacs"],
+    ]
+    links = [
+        [".gitconfig", "git/gitconfig"],
+
+        [".spacemacs", "spacemacs/spacemacs"],
+
+        [".terraformrc", "terraform/terraformrc"],
+
+        [".tmux.conf", "tmux/tmux.conf"],
+
+        [".zshrc", "zshell/zshrc"],
+        [".zsh.d/functions", "zshell/functions"],
+        [".zsh.d/alias.zsh", "zshell/alias.zsh"],
+        [".zsh.d/bindings.zsh", "zshell/bindings.zsh"],
+        [".zsh.d/config.zsh", "zshell/config.zsh"],
+        [".zsh.d/path.zsh", "zshell/path.zsh"],
+        [".zsh.d/prompt.zsh", "zshell/prompt.zsh"],
+        [".zsh.d/window.zsh", "zshell/window.zsh"],
+
+        [".zsh.d/gcloud.zsh", "gcloud/gcloud.zsh"],
+
+        [".zsh.d/go.zsh", "go/go.zsh"],
+
+        [".zsh.d/rust.zsh", "rust/rust.zsh"],
+
+        [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
+        [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
+    ]
+
+[tasks.desktop_install]
+    deps = ["base_install"]
+    cmds = [
+        [
+            "@install",
+            "i3-wm", "i3blocks", "i3lock",
+            "xorg", "xorg-xinit", "xorg-xrandr",
+            "rxvt-unicode", "xcursor-dmz",
+            "otf-font-awesome",
+        ]
+    ]
+
+[tasks.desktop]
+    deps = ["base"]
+    templates = [
+        [".config/polybar/config", "polybar/config"],
+        [".config/polybar/launch.sh", "polybar/launch.sh"],
+
+        [".config/i3/config", "i3/config"],
+        [".i3blocks.conf", "i3/i3blocks.conf"],
+
+        [".config/dunst/dunstrc", "dunst/dunstrc"],
+
+        [".xinitrc", "x/xinitrc"],
+        [".Xresources", "x/Xresources"],
+    ]
+    links = [
+        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
+
+        [".xmodmaprc", "x/xmodmaprc"],
+    ]
+    cmds_post = [
+        ["chmod", "755", ".config/polybar/launch.sh"],
+        ["chmod", "755", ".xinitrc"],
+    ]
+    
+
+[tasks.archjunk]
+    deps = ["desktop"]
+    cmds = [
+        ["@install", "virtualbox-guest-modules-arch", "xorg-drivers"],
+    ]
+
+[tasks.ubuntujunk]
+    deps = ["desktop"]
+    cmds = [
+        ["@install", "xinit", "i3-wm"]
+    ]
+    links = [
+        [".config/polybar/config", "polybar/config"],
+        [".config/polybar/launch.sh", "polybar/launch.sh"],
+
+        [".config/i3/i3lock.sh", "i3/i3lock.sh"],
+        [".config/i3/config", "i3/config"],
+    ]
+
+[tasks.aphng]
+    deps = ["desktop"]
+
+[tasks.ace]
+    deps = ["desktop"]
+
+[tasks.akame]
+    deps = ["desktop"]
+
+[tasks.kiki]
+    deps = ["base"]
+
