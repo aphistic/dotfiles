@@ -1,3 +1,6 @@
+# Fix TRAMP mode in emacs
+[[ $TERM == "dumb" ]] && unsetopt zle && PROMPT='$ ' && return
+
 export ZSHD=$HOME/.zsh.d
 
 autoload -U compinit && compinit
@@ -13,5 +16,3 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# Fix TRAMP mode in emacs
-[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '

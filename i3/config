@@ -188,8 +188,8 @@ workspace 11 output DisplayPort-0
 
 {{ else if eq .Env.HM_TASK "ace" }}
 
-workspace 1 output DVI-I-1
-workspace 5 output DVI-D-0
+workspace 1 output DP-0
+workspace 5 output HDMI-1
 workspace 9 output HDMI-0
 
 {{ end }}

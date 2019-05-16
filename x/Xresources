@@ -2,6 +2,10 @@
 
 Xft.dpi: 160
 
+{{ else if eq .Env.HM_TASK "ace" }}
+
+Xft.dpi: 160
+
 {{ else }}
 
 Xft.dpi: 96
@@ -57,6 +61,11 @@ URxvt*color15 : #EEEEEC
 URxvt*font: xft:Hack:pixelsize=20
 URxvt*boldFont: xft:Hack:bold:pixelsize=20
 
+{{ else if eq .Env.HM_TASK "ace" }}
+
+URxvt*font: xft:Hack:pixelsize=20
+URxvt*boldFont: xft:Hack:bold:pixelsize=20
+
 {{ else }}
 
 URxvt*font: xft:Hack:pixelsize=12
@@ -97,6 +106,10 @@ URxvt.tabbed.title: no
 
 ! Rofi settings
 {{ if eq .Env.HM_TASK "akame" }}
+
+rofi.dpi: 160
+
+{{ else if eq .Env.HM_TASK "ace" }}
 
 rofi.dpi: 160
 
