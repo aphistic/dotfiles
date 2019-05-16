@@ -1,0 +1,14 @@
+{
+    "vars": [
+        { "name": "host", "exec": "hostname -s", "default": "default" }
+    ],
+    "merge": [
+        {
+            "output": "config",
+            "input": [
+                "config.base",
+                "config.host.{{host}}"
+            ]
+        }
+    ]
+}

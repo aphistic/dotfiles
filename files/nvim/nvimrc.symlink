@@ -1,0 +1,153 @@
+set noswapfile
+
+" -----------------------------
+"  Plugins
+" -----------------------------
+call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/vim-tomorrow-theme'
+Plug 'junegunn/seoul256.vim'
+
+Plug 'bling/vim-airline'
+
+Plug 'tpope/vim-vinegar'
+
+Plug 'junegunn/vim-peekaboo'
+
+Plug 'kien/rainbow_parentheses.vim'
+Plug 'kien/ctrlp.vim'
+
+Plug 'Valloric/YouCompleteMe', { 'for': ['cpp','c','go','python'],'do': './install.sh --clang-completer' }
+autocmd! User YouCompleteMe call youcompleteme#Enable()
+Plug 'fatih/vim-go'
+
+call plug#end()
+
+" ----------------------------
+"  Plugin Settings
+" ----------------------------
+" airline
+if !exists('g:airline_symbols')
+let g:airline_symbols = {}
+endif
+let g:airline_powerline_fonts = 0
+let g:airline_left_sep = '»'
+let g:airline_left_sep = ''
+let g:airline_right_sep = '«'
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␊'
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.linenr = '¶'
+let g:airline_symbols.branch = '⎇'
+let g:airline_symbols.paste = 'ρ'
+let g:airline_symbols.paste = 'Þ'
+let g:airline_symbols.paste = '∥'
+let g:airline_symbols.whitespace = 'Ξ'
+
+" RainbowParentheses
+augroup RainbowParens
+    autocmd!
+    au VimEnter * RainbowParenthesesToggle
+    au VimEnter * RainbowParenthesesLoadRound
+    au VimEnter * RainbowParenthesesLoadSquare
+    au VimEnter * RainbowParenthesesLoadBraces
+augroup END
+
+" YouCompleteMe
+let g:ycm_global_ycm_extra_conf = "~/.vim/.ycm_extra_conf.py"
+
+" ----------------------------------------------------------------------------
+"  Text Formatting
+" ----------------------------------------------------------------------------
+set bs=2
+set autoindent             " automatic indent new lines
+set smartindent            " be smart about it
+inoremap # X<BS>#
+set nowrap                 " do not wrap lines
+set softtabstop=4          " yep, two
+set shiftwidth=4           " ..
+set tabstop=4
+set expandtab              " expand tabs to spaces
+set nosmarttab             " fuck tabs
+set formatoptions+=n       " support for numbered/bullet lists
+"set textwidth=80           " wrap at 80 chars by default
+set virtualedit=block      " allow virtual edit in visual block ..
+
+" ----------------------------------------------------------------------------
+"  Remapping
+" ----------------------------------------------------------------------------
+
+" lead with ,
+let mapleader = ","
+
+" exit to normal mode with 'jj'
+inoremap jj <ESC>
+
+
+" reflow paragraph with Q in normal and visual mode
+nnoremap Q gqap
+vnoremap Q gq
+
+" sane movement with wrap turned on
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+
+" ----------------------------------------------------------------------------
+"  UI
+" ----------------------------------------------------------------------------
+
+set mouse=a
+set ruler                  " show the cursor position all the time
+set noshowcmd              " don't display incomplete commands
+set nolazyredraw           " turn off lazy redraw
+set number                 " line numbers
+set wildmenu               " turn on wild menu
+set wildmode=list:longest,full
+set ch=1                   " command line height
+set backspace=2            " allow backspacing over everything in insert mode
+set whichwrap+=<,>,h,l,[,] " backspace and cursor keys wrap to
+set shortmess=filtIoOA     " shorten messages
+set report=0               " tell us about changes
+set nostartofline          " don't jump to the start of line when scrolling
+color Tomorrow-Night
+
+" ----------------------------------------------------------------------------
+" Visual Cues
+" ----------------------------------------------------------------------------
+
+set showmatch              " brackets/braces that is
+set mat=5                  " duration to show matching brace (1/10 sec)
+set incsearch              " do incremental searching
+set laststatus=2           " always show the status line
+set ignorecase             " ignore case when searching
+"set nohlsearch             " don't highlight searches
+set visualbell             " shut the fuck up
+set cursorline
+set cursorcolumn
+
+" File Types
+
+augroup vagrant
+  au!
+  au BufRead,BufNewFile Vagrantfile set filetype=ruby
+augroup END
+
+" ---------------------------------------------------------------------------
+"  Strip all trailing whitespace in file
+" ---------------------------------------------------------------------------
+
+function! StripWhitespace ()
+    exec ':%s/ \+$//gc'
+endfunction
+map ,s :call StripWhitespace ()<CR>

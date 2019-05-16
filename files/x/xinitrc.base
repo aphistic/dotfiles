@@ -1,0 +1,9 @@
+FT2_SUBPIXEL_HINTING=1
+
+xmodmap ~/.xmodmaprc
+xrdb ~/.Xresources
+
+{{include xinitrc.host.{{host}}}}
+
+exec dunst &
+exec i3
