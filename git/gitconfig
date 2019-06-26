@@ -1,6 +1,11 @@
 [user]
+{{ if eq .Env.HM_TASK "nm" }}
 	name = Erik Davidson
-	email = erik@erikd.org
+	email = erikdavidson@northwesternmutual.com
+{{ else }}
+    name = Erik Davidson
+    email = erik@erikd.org
+{{ end }}
 
 [core]
 	editor = vim

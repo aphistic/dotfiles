@@ -1,5 +1,0 @@
-{
-    "skip_traverse": [
-        "local.symlink"
-    ]
-}

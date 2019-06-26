@@ -1,0 +1,3 @@
+export ZSHD=$HOME/.zsh.d
+
+for config_file ($ZSHD/**/*.zshenv) source $config_file

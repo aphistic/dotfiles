@@ -1,9 +1,11 @@
-# Fix TRAMP mode in emacs
-[[ $TERM == "dumb" ]] && unsetopt zle && PROMPT='$ ' && return
-
-export ZSHD=$HOME/.zsh.d
-
 autoload -U compinit && compinit
+
+# Oh My ZSH Settings
+export ZSH=$HOME/.oh-my-zsh
+ZSH_CUSTOM=$HOME/.zsh-custom
+ZSH_THEME="aphistic"
+plugins=(docker git kubectl)
+source $ZSH/oh-my-zsh.sh
 
 for config_file ($ZSHD/**/*.zsh) source $config_file
 
@@ -16,3 +18,5 @@ fi
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
+# Fix TRAMP mode in emacs
+[[ $TERM == "dumb" ]] && unsetopt zle && PS1='$ '
