@@ -93,7 +93,11 @@ function git_st() {
     behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
         (( $behind )) && gitstatus+=( "%{$orange%}-${behind}${PR_RST}" )
 
-    GIT_REMOTE_STATUS=" ${gitstatus}"
+    if [[ -z "${gitstatus}" ]]; then
+        GIT_REMOTE_STATUS=""
+    else
+        GIT_REMOTE_STATUS=" ${gitstatus}"
+    fi
 }
 
 function aphistic_precmd {
