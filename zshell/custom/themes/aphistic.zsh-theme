@@ -83,7 +83,7 @@ function steeef_chpwd {
 }
 add-zsh-hook chpwd steeef_chpwd
 
-function steeef_precmd {
+function aphistic_precmd {
     if [[ -n "$PR_GIT_UPDATE" ]] ; then
         # check for untracked files or updated submodules, since vcs_info doesn't
         if git ls-files --other --exclude-standard 2> /dev/null | grep -q "."; then
@@ -97,9 +97,19 @@ function steeef_precmd {
         vcs_info 'prompt'
         PR_GIT_UPDATE=
     fi
+
+    if hash kubectl 2>/dev/null; then
+        K8S_CUR_CONTEXT=`kubectl config current-context 2>/dev/null`
+        if [ $? -eq 0 ]; then
+            K8S_INFO="(%{$turquoise%}${K8S_CUR_CONTEXT}${PR_RST})"
+        else
+            K8S_INFO=""
+        fi
+    fi
 }
-add-zsh-hook precmd steeef_precmd
+add-zsh-hook precmd aphistic_precmd
 
 PROMPT=$'
-%{$purple%}%n${PR_RST} at %{$orange%}%m${PR_RST} in %{$limegreen%}%~${PR_RST} $vcs_info_msg_0_$(virtualenv_info)
+%{$purple%}%n${PR_RST}@%{$purple%}%m${PR_RST} %{$limegreen%}%~${PR_RST}
 $ '
+RPROMPT='$vcs_info_msg_0_$(virtualenv_info)${K8S_INFO}'

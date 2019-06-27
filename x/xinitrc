@@ -1,0 +1,13 @@
+FT2_SUBPIXEL_HINTING=1
+
+xmodmap ~/.xmodmaprc
+xrdb -merge ~/.Xresources
+
+{{ if eq .Env.HM_TASK "ace" }}
+
+xrandr --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --mode 3840x2160 --pos 7680x0 --rotate normal
+
+{{ end }}
+
+exec dunst &
+exec i3

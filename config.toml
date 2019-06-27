@@ -17,11 +17,31 @@
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
     ]
 
+[tasks.desktop]
+    deps = ["base"]
+    templates = [
+        [".xinitrc", "x/xinitrc"],
+        [".Xresources", "x/Xresources"],
+
+        [".config/i3/config", "i3/config"],
+        [".i3blocks.conf", "i3/i3blocks.conf"],
+
+        [".config/dunst/dunstrc", "dunst/dunstrc"],
+
+        [".config/termite/config", "termite/config"],
+    ]
+    cmds_post = [
+        ["chmod", "755", ".xinitrc"],
+    ]
+
 [tasks.macos]
     deps = ["base"]
     links = [
-        ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"]
+        ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"],
     ]
 
 [tasks.nm]
     deps = ["macos"]
+
+[tasks.ace]
+    deps = ["desktop"]
