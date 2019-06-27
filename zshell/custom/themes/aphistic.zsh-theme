@@ -63,7 +63,7 @@ zstyle ':vcs_info:*:prompt:*' formats       "${FMT_BRANCH}"
 zstyle ':vcs_info:*:prompt:*' nvcsformats   ""
 
 
-function steeef_preexec {
+function aphistic_preexec {
     case "$2" in
         *git*)
             PR_GIT_UPDATE=1
@@ -76,21 +76,36 @@ function steeef_preexec {
             ;;
     esac
 }
-add-zsh-hook preexec steeef_preexec
+add-zsh-hook preexec aphistic_preexec
 
-function steeef_chpwd {
+function aphistic_chpwd {
     PR_GIT_UPDATE=1
 }
-add-zsh-hook chpwd steeef_chpwd
+add-zsh-hook chpwd aphistic_chpwd
+
+function git_st() {
+    local ahead behind
+    local -a gitstatus
+
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+    (( $ahead )) && gitstatus+=( "%{$limegreen%}+${ahead}${PR_RST}" )
+
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+        (( $behind )) && gitstatus+=( "%{$orange%}-${behind}${PR_RST}" )
+
+    GIT_REMOTE_STATUS=" ${gitstatus}"
+}
 
 function aphistic_precmd {
     if [[ -n "$PR_GIT_UPDATE" ]] ; then
+        git_st
+
         # check for untracked files or updated submodules, since vcs_info doesn't
         if git ls-files --other --exclude-standard 2> /dev/null | grep -q "."; then
             PR_GIT_UPDATE=1
-            FMT_BRANCH="(%{$turquoise%}%b%u%c%{$hotpink%}●${PR_RST})"
+            FMT_BRANCH="(%{$turquoise%}%b%u%c%{$hotpink%}●${PR_RST}${GIT_REMOTE_STATUS})"
         else
-            FMT_BRANCH="(%{$turquoise%}%b%u%c${PR_RST})"
+            FMT_BRANCH="(%{$turquoise%}%b%u%c${PR_RST}${GIT_REMOTE_STATUS})"
         fi
         zstyle ':vcs_info:*:prompt:*' formats "${FMT_BRANCH} "
 
