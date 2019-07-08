@@ -129,6 +129,6 @@ function aphistic_precmd {
 add-zsh-hook precmd aphistic_precmd
 
 PROMPT=$'
-%{$purple%}%n${PR_RST}@%{$purple%}%m${PR_RST} %{$limegreen%}%~${PR_RST}
+%{$turquoise%}%n${PR_RST}@%{$purple%}%m${PR_RST} %{$limegreen%}%~${PR_RST}
 $ '
 RPROMPT='$vcs_info_msg_0_$(virtualenv_info)${K8S_INFO}'
