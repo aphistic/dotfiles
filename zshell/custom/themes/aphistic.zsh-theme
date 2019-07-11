@@ -87,10 +87,10 @@ function git_st() {
     local ahead behind
     local -a gitstatus
 
-    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l)
+    ahead=$(git rev-list ${hook_com[branch]}@{upstream}..HEAD 2>/dev/null | wc -l | tr -d '[:space:]')
     (( $ahead )) && gitstatus+=( "%{$limegreen%}+${ahead}${PR_RST}" )
 
-    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l)
+    behind=$(git rev-list HEAD..${hook_com[branch]}@{upstream} 2>/dev/null | wc -l | tr -d '[:space:]')
         (( $behind )) && gitstatus+=( "%{$orange%}-${behind}${PR_RST}" )
 
     if [[ -z "${gitstatus}" ]]; then
