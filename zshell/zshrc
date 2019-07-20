@@ -10,6 +10,7 @@ source $ZSH/oh-my-zsh.sh
 for config_file ($ZSHD/**/*.zsh) source $config_file
 
 unsetopt correct
+unsetopt SHARE_HISTORY
 
 if [[ -a $HOME/.localrc ]]
 then

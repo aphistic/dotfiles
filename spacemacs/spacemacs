@@ -49,6 +49,7 @@ values."
      python
      sql
      shell-scripts
+     restclient
      ruby
      rust
      salt
@@ -70,6 +71,8 @@ values."
    ;; packages, then consider creating a layer. You can also put the
    ;; configuration in `dotspacemacs/user-config'.
    dotspacemacs-additional-packages '(dtrt-indent
+                                      editorconfig
+                                      highlight-indent-guides
                                       )
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
@@ -355,17 +358,27 @@ you should place your code here."
   (define-key evil-motion-state-map [next] 'evil-scroll-page-down)
   (define-key evil-insert-state-map [next] 'evil-scroll-page-down)
 
+  (global-set-key [home] 'move-beginning-of-line)
+  (global-set-key [end] 'move-end-of-line)
+
   (global-subword-mode 1) ; Use camel case word mode
   (dtrt-indent-mode t) ; Enable dtrt indent
 
   (delete-selection-mode 1) ; Turn on replacing selected text when typing
 
   (setq-default evil-escape-key-sequence "zx") ; Back up escape sequence
-  (setq-default tab-width 4)
 
+  ; Back up escape sequence
+  (setq-default tab-width 4)
   (setq go-tab-width 4)
   (setq web-mode-markup-indent-offset 4)
   (setq web-mode-css-indent-offset 4)
+
+  ; Disable js warnings and errors in favor of syntax-checking layer
+  (setq js2-mode-show-parse-errors nil)
+  (setq js2-mode-show-strict-warnings nil)
+
+  (editorconfig-mode 1)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
