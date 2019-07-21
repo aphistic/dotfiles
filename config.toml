@@ -45,3 +45,6 @@
 
 [tasks.ace]
     deps = ["desktop"]
+
+[tasks.akame]
+    deps = ["desktop"]

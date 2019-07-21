@@ -193,3 +193,5 @@ workspace 5 output HDMI-1
 workspace 9 output HDMI-0
 
 {{ end }}
+
+exec --no-startup-id nm-applet --sm-disable
