@@ -1,8 +1,4 @@
-{{ if eq .Env.HM_TASK "akame" }}
-
-Xft.dpi: 160
-
-{{ else if eq .Env.HM_TASK "ace" }}
+{{ if or (eq .Env.HM_TASK "akame") (or (eq .Env.HM_TASK "ace") (eq .Env.HM_TASK "fate")) }}
 
 Xft.dpi: 160
 
@@ -23,15 +19,12 @@ Xft.lcdfilter: lcddefault
 Xcursor.theme:    DMZ-White
 
 ! Rofi settings
-{{ if eq .Env.HM_TASK "akame" }}
-
-rofi.dpi: 160
-
-{{ else if eq .Env.HM_TASK "ace" }}
+{{ if or (eq .Env.HM_TASK "akame") (or (eq .Env.HM_TASK "ace") (eq .Env.HM_TASK "fate")) }}
 
 rofi.dpi: 160
 
 {{ end }}
+
 rofi.bw: 2
 rofi.padding: 2
 rofi.color-enabled: true

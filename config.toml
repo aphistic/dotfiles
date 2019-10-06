@@ -48,3 +48,6 @@
 
 [tasks.akame]
     deps = ["desktop"]
+
+[tasks.fate]
+    deps = ["desktop"]
