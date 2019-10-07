@@ -5,7 +5,18 @@ xrdb -merge ~/.Xresources
 
 {{ if eq .Env.HM_TASK "ace" }}
 
-xrandr --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --rotate normal --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate normal --output HDMI-1 --mode 3840x2160 --pos 7680x0 --rotate normal
+xrandr --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --rotate normal \
+       --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate normal \
+       --output HDMI-1 --mode 3840x2160 --pos 7680x0 --rotate normal
+
+{{ else if eq .Env.HM_TASK "fate" }}
+
+if [ "$EGPU_DRIVER" = "intel" ]; then
+
+elif [ "$EGPU_DRIVER" = "amd" ]; then
+     xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+            --output HDMI-1-1 --mode 3840x2160 --pos 3840x0 --rotate normal
+fi
 
 {{ end }}
 
