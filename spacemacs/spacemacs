@@ -153,12 +153,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   {{ if eq .Env.HM_TASK "akame" }}
-   dotspacemacs-default-font '("Source Code Pro"
-                               :size 22
-                               :weight normal
-                               :width normal
-   {{ else if eq .Env.HM_TASK "ace" }}
+   {{ if or (eq .Env.HM_TASK "akame") (or (eq .Env.HM_TASK "ace") (eq .Env.HM_TASK "fate")) }}
    dotspacemacs-default-font '("Source Code Pro"
                                :size 22
                                :weight normal
