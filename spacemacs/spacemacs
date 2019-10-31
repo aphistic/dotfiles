@@ -36,29 +36,30 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
+     auto-completion
      chrome
+     docker
      elm
+     emacs-lisp
      helm
      html
      git
      go
-     version-control
-     markdown
-     auto-completion
-     emacs-lisp
+     (markdown :variables markdown-live-preview-engine 'vmd)
+     org
+     osx
      python
-     sql
-     shell-scripts
      restclient
      ruby
      rust
      salt
+     shell
      shell-scripts
+     sql
      terraform
-     org
-     osx
-     yaml
      javascript
+     version-control
+     yaml
      ;; better-defaults
      ;; (shell :variables
      ;;        shell-default-height 30
