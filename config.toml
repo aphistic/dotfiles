@@ -10,11 +10,13 @@
 
         [".zsh-custom", "zshell/custom"],
 
-        [".zsh.d/go.zshenv", "go/go.zshenv"],
-
         [".zsh.d/fzf.zshenv", "fzf/fzf.zshenv"],
         [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
+
+        [".zsh.d/go.zshenv", "go/go.zshenv"],
+
+        [".zsh.d/kube.zshenv", "kube/kube.zshenv"],
     ]
 
 [tasks.desktop]
