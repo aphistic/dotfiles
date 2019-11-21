@@ -200,4 +200,4 @@ workspace 9 output DisplayPort-1
 
 {{ end }}
 
-exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id nm-applet
