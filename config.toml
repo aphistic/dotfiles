@@ -17,6 +17,9 @@
         [".zsh.d/go.zshenv", "go/go.zshenv"],
 
         [".zsh.d/kube.zshenv", "kube/kube.zshenv"],
+
+        [".config/nvim/init.vim", "nvim/init.vim"],
+        [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
     ]
 
 [tasks.desktop]
