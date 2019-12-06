@@ -10,11 +10,16 @@
 
         [".zsh-custom", "zshell/custom"],
 
-        [".zsh.d/go.zshenv", "go/go.zshenv"],
-
         [".zsh.d/fzf.zshenv", "fzf/fzf.zshenv"],
         [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
         [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
+
+        [".zsh.d/go.zshenv", "go/go.zshenv"],
+
+        [".zsh.d/kube.zshenv", "kube/kube.zshenv"],
+
+        [".config/nvim/init.vim", "nvim/init.vim"],
+        [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
     ]
 
 [tasks.desktop]

@@ -198,6 +198,8 @@ workspace 1 output HDMI-A-0
 workspace 5 output HDMI-A-1
 workspace 9 output DisplayPort-1
 
+exec --no-startup-id blueman-applet
+
 {{ end }}
 
-exec --no-startup-id nm-applet --sm-disable
+exec --no-startup-id nm-applet
