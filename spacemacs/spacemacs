@@ -157,12 +157,12 @@ values."
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
    {{ if or (eq .Env.HM_TASK "akame") (or (eq .Env.HM_TASK "ace") (eq .Env.HM_TASK "fate")) }}
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Fira Code"
                                :size 22
                                :weight normal
                                :width normal
    {{ else }}
-   dotspacemacs-default-font '("Source Code Pro"
+   dotspacemacs-default-font '("Fira Code"
                                :size 13
                                :weight normal
                                :width normal
