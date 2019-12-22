@@ -33,7 +33,7 @@
 
         [".config/dunst/dunstrc", "dunst/dunstrc"],
 
-        [".config/termite/config", "termite/config"],
+        [".config/alacritty/alacritty.yml", "alacritty/alacritty.yml"],
     ]
     cmds_post = [
         ["chmod", "755", ".xinitrc"],
