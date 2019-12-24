@@ -20,6 +20,8 @@
 
         [".config/nvim/init.vim", "nvim/init.vim"],
         [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
+
+        [".zsh.d/rust.zshenv", "rust/rust.zshenv"],
     ]
 
 [tasks.desktop]
