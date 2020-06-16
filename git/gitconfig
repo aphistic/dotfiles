@@ -1,17 +1,17 @@
 [user]
-{{ if eq .Env.HM_TASK "nm" }}
-	name = Erik Davidson
-	email = erikdavidson@northwesternmutual.com
+{{ if eq .Env.HM_TASK "atlassianmac" }}
+	name =  Kristin Davidson
+	email = kdavidson@atlassian.com
 {{ else }}
-    name = Erik Davidson
-    email = erik@erikd.org
+    name = Kristin Davidson
+    email = k@kxd.dev
 {{ end }}
 
 [core]
-	editor = vim
+	editor = nvim
 [merge]
     tool = p4merge
-{{ if eq .Env.HM_TASK "nm" }}
+{{ if eq .Env.HM_TASK "atlassianmac" }}
 [mergetool "p4merge"]
     cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
     trustExitCode = false

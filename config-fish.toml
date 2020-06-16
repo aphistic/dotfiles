@@ -1,0 +1,34 @@
+[tasks.base]
+    templates = [
+        [".spacemacs", "spacemacs/spacemacs"],
+        [".gitconfig", "git/gitconfig"],
+    ]
+    links = [
+        [".config/nvim/init.vim", "nvim/init.vim"],
+        [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
+
+        [".config/fish/config.fish", "fish/config.fish"],
+        [".config/fish/functions/fish_prompt.fish", "fish/functions/fish_prompt.fish"],
+        [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
+
+        [".config/fish/conf.d/go.fish", "go/go.fish"],
+        [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
+    ]
+
+[tasks.macos]
+    deps = ["base"]
+    links = [
+        ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"],
+    ]
+
+[tasks.atlassianmac]
+    deps = ["macos"]
+
+[tasks.ace]
+    deps = ["desktop"]
+
+[tasks.akame]
+    deps = ["desktop"]
+
+[tasks.fate]
+    deps = ["desktop"]
