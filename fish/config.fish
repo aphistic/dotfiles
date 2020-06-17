@@ -1,3 +1,5 @@
+set PATH $PATH $HOME/bin
+
 # Fish git prompt
 set __fish_git_prompt_showcolorhints true
 set __fish_git_prompt_color_branch a3be8c
