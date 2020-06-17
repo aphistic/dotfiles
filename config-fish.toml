@@ -10,10 +10,15 @@
         [".config/fish/config.fish", "fish/config.fish"],
         [".config/fish/functions/fish_prompt.fish", "fish/functions/fish_prompt.fish"],
         [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
+        [".config/fish/functions/fish_greeting.fish", "fish/functions/fish_greeting.fish"],
+        [".config/fish/functions/fish_user_key_bindings.fish", "fish/functions/fish_user_key_bindings.fish"],
 
         [".config/fish/conf.d/go.fish", "go/go.fish"],
         [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
     ]
+
+[tasks.desktop]
+    deps = ["base"]
 
 [tasks.macos]
     deps = ["base"]

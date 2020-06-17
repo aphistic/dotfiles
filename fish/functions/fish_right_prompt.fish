@@ -1,3 +1,3 @@
 function fish_right_prompt
-    echo -n (set_color $fish_color_autosuggestion) "test"
+    echo -n -s (set_color $fish_color_autosuggestion) (date +"%Y-%m-%d %I:%M:%S%P") (set_color reset)
 end
