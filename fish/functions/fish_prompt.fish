@@ -12,7 +12,7 @@ function fish_prompt --description 'Write out the prompt'
 
     set -l git_prompt (fish_git_prompt "%s")
     if [ -n "$git_prompt" ]
-        echo -n -s [$git_prompt]
+        echo -n -s [ $git_prompt (set_color reset) ]
     end
 
     echo "" # Finish the first line
