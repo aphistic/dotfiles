@@ -1,6 +1,6 @@
 set PATH $PATH $HOME/bin
 
-# Fish git prompt
+# --- Fish git prompt ---
 set __fish_git_prompt_showcolorhints true
 set __fish_git_prompt_color_branch a3be8c
 set __fish_git_prompt_color_branch_detached red
@@ -23,7 +23,7 @@ set __fish_git_prompt_char_upstream_equal ''
 set __fish_git_prompt_char_upstream_ahead (set_color a3be8c)' +'
 set __fish_git_prompt_char_upstream_behind (set_color red)' -'
 
-# Set Nord Color Scheme
+# --- Set Nord Color Scheme ---
 set -U fish_color_normal normal
 set -U fish_color_command 81a1c1
 set -U fish_color_quote a3be8c
@@ -49,3 +49,19 @@ set -U fish_pager_color_progress brwhite --background=cyan
 set -U fish_color_comment 434c5e
 set -U fish_color_param eceff4
 set -U fish_color_match --background=brblue
+
+# --- Set abbreviations ---
+
+# Useful stuff
+abbr bin 'cd ~/bin'
+abbr data 'cd ~/data'
+abbr dev 'cd ~/dev'
+abbr dotfiles 'cd ~/.dotfiles'
+abbr ext 'cd ~/ext'
+abbr tmp 'cd ~/tmp'
+
+# Git commands
+abbr ga 'git add'
+abbr gc 'git commit -m'
+abbr gcom 'git checkout master'
+abbr gs 'git status'
