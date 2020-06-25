@@ -1,3 +1,7 @@
+# Disable the default venv display override. This is here so I don't
+# forget to do it elsewhere and it involves the prompt.
+set -g VIRTUAL_ENV_DISABLE_PROMPT true
+
 function fish_prompt --description 'Write out the prompt'
     echo "" # Add a blank line before the prompt
 
@@ -12,9 +16,14 @@ function fish_prompt --description 'Write out the prompt'
 
     set -l git_prompt (fish_git_prompt "%s")
     if [ -n "$git_prompt" ]
-        echo -n -s [ $git_prompt (set_color reset) ]
+        echo -n -s "[G:" $git_prompt (set_color reset) "]"
+    end
+
+    # Disable the default virtual env prompt
+    if set -q VIRTUAL_ENV
+        echo -n -s "[P:" (set_color a838a6) (basename $VIRTUAL_ENV) (set_color reset) "]"
     end
 
     echo "" # Finish the first line
-    echo -s (set_color a3be8c) (prompt_pwd) (set_color reset) " $user_symbol "
+    echo -s (prompt_pwd) " $user_symbol "
 end

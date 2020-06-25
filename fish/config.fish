@@ -2,14 +2,14 @@ set PATH $PATH $HOME/bin
 
 # --- Fish git prompt ---
 set __fish_git_prompt_showcolorhints true
-set __fish_git_prompt_color_branch a3be8c
+set __fish_git_prompt_color_branch 6ab346
 set __fish_git_prompt_color_branch_detached red
 
 set __fish_git_prompt_showdirtystate true
 set __fish_git_prompt_char_dirtystate '●'
 set __fish_git_prompt_char_stagedstate '●'
 set __fish_git_prompt_color_dirtystate yellow
-set __fish_git_prompt_color_stagedstate a3be8c
+set __fish_git_prompt_color_stagedstate 6ab346
 
 set __fish_git_prompt_showstashstate true
 set __fish_git_prompt_char_stashstate '⚑'
@@ -20,7 +20,7 @@ set __fish_git_prompt_color_untrackedfiles red
 
 set __fish_git_prompt_showupstream informative
 set __fish_git_prompt_char_upstream_equal ''
-set __fish_git_prompt_char_upstream_ahead (set_color a3be8c)' +'
+set __fish_git_prompt_char_upstream_ahead (set_color 6ab346)' +'
 set __fish_git_prompt_char_upstream_behind (set_color red)' -'
 
 # --- Set Nord Color Scheme ---
