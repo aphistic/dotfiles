@@ -63,6 +63,7 @@ abbr tmp 'cd ~/tmp'
 # Git commands
 abbr ga 'git add'
 abbr gc 'git commit -m'
+abbr gd 'git diff'
 abbr gcom 'git checkout master'
 abbr gp 'git push'
 abbr gpl 'git pull'
