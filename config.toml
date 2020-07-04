@@ -4,42 +4,21 @@
         [".gitconfig", "git/gitconfig"],
     ]
     links = [
-        [".zshenv", "zshell/zshenv"],
-        [".zshrc", "zshell/zshrc"],
-        [".zsh.d/path.zshenv", "zshell/path.zshenv"],
-
-        [".zsh-custom", "zshell/custom"],
-
-        [".zsh.d/fzf.zshenv", "fzf/fzf.zshenv"],
-        [".zsh.d/fzf.zsh", "fzf/fzf.zsh"],
-        [".zsh.d/fzf_bindings.zsh", "fzf/fzf_bindings.zsh"],
-
-        [".zsh.d/go.zshenv", "go/go.zshenv"],
-
-        [".zsh.d/kube.zshenv", "kube/kube.zshenv"],
-
         [".config/nvim/init.vim", "nvim/init.vim"],
         [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
 
-        [".zsh.d/rust.zshenv", "rust/rust.zshenv"],
+        [".config/fish/config.fish", "fish/config.fish"],
+        [".config/fish/functions/fish_prompt.fish", "fish/functions/fish_prompt.fish"],
+        [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
+        [".config/fish/functions/fish_greeting.fish", "fish/functions/fish_greeting.fish"],
+        [".config/fish/functions/fish_user_key_bindings.fish", "fish/functions/fish_user_key_bindings.fish"],
+
+        [".config/fish/conf.d/go.fish", "go/go.fish"],
+        [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
     ]
 
 [tasks.desktop]
     deps = ["base"]
-    templates = [
-        [".xinitrc", "x/xinitrc"],
-        [".Xresources", "x/Xresources"],
-
-        [".config/i3/config", "i3/config"],
-        [".i3blocks.conf", "i3/i3blocks.conf"],
-
-        [".config/dunst/dunstrc", "dunst/dunstrc"],
-
-        [".config/alacritty/alacritty.yml", "alacritty/alacritty.yml"],
-    ]
-    cmds_post = [
-        ["chmod", "755", ".xinitrc"],
-    ]
 
 [tasks.macos]
     deps = ["base"]
@@ -47,7 +26,7 @@
         ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"],
     ]
 
-[tasks.nm]
+[tasks.atlassianmac]
     deps = ["macos"]
 
 [tasks.ace]
