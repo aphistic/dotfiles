@@ -29,6 +29,9 @@
 [tasks.atlassianmac]
     deps = ["macos"]
 
+[tasks.kxdatlas]
+    deps = ["desktop"]
+
 [tasks.ace]
     deps = ["desktop"]
 
