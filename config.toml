@@ -19,6 +19,14 @@
 
 [tasks.desktop]
     deps = ["base"]
+    templates = [
+        [".config/i3/config", "i3/config"],
+        [".i3blocks.conf", "i3/i3blocks.conf"],
+
+        [".config/dunst/dunstrc", "dunst/dunstrc"],
+
+        [".config/alacritty/alacritty.yml", "alacritty/alacritty.yml"],
+    ]
 
 [tasks.macos]
     deps = ["base"]
