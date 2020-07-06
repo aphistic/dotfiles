@@ -1,9 +1,8 @@
 FT2_SUBPIXEL_HINTING=1
 
-XRESOURCES_DEF=USING_INTERNAL
+XRESOURCES_EGPU_DEF=USING_INTERNAL
 
 xmodmap ~/.xmodmaprc
-xrdb -merge ~/.Xresources
 
 {{ if eq .Env.HM_TASK "ace" }}
 
@@ -25,10 +24,12 @@ xrandr --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --rotate normal \
 XORG_FILE="$(readlink -f /etc/X11/xorg.conf)"
 if [[ "$XORG_FILE" == *"egpu"* ]]; then
     USING_EGPU=1
-    XRESOURCES_DEF=USING_EGPU
+    XRESOURCES_EGPU_DEF=USING_EGPU
 fi
 
 {{ end }}
+
+xrdb -D${XRESOURCES_EGPU_DEF} -merge ~/.Xresources
 
 exec dunst &
 exec i3
