@@ -1,0 +1,32 @@
+FT2_SUBPIXEL_HINTING=1
+
+XRESOURCES_EGPU_DEF=USING_INTERNAL
+
+xmodmap ~/.xmodmaprc
+
+{{ if eq .Env.HM_TASK "ace" }}
+
+xrandr --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --rotate normal \
+       --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate normal \
+       --output HDMI-1 --mode 3840x2160 --pos 7680x0 --rotate normal
+
+{{ else if eq .Env.HM_TASK "fate" }}
+
+# if [ "$EGPU_DRIVER" = "intel" ]; then
+# 
+# elif [ "$EGPU_DRIVER" = "amd" ]; then
+     # xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
+            # --output HDMI-1-1 --mode 3840x2160 --pos 3840x0 --rotate normal
+# fi
+
+{{ else if eq .Env.HM_TASK "kxdatlas" }}
+
+XORG_FILE="$(readlink -f /etc/X11/xorg.conf)"
+if [[ "$XORG_FILE" == *"egpu"* ]]; then
+    USING_EGPU=1
+    XRESOURCES_EGPU_DEF=USING_EGPU
+fi
+
+{{ end }}
+
+xrdb -D${XRESOURCES_EGPU_DEF} -merge ~/.Xresources

@@ -21,6 +21,7 @@
     deps = ["base"]
     templates = [
         [".xinitrc", "x/xinitrc"],
+        [".xprofile", "x/xprofile"],
         [".Xresources", "x/Xresources"],
 
         [".config/i3/config", "i3/config"],
