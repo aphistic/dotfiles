@@ -200,6 +200,12 @@ workspace 9 output DisplayPort-1
 
 exec --no-startup-id blueman-applet
 
+{{ else if eq .Env.HM_TASK "kxdatlas" }}
+
+workspace 1 output DP-1
+workspace 5 output HDMI-0
+workspace 9 output DP-4
+
 {{ end }}
 
 exec --no-startup-id nm-applet

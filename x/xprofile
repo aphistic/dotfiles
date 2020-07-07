@@ -1,32 +1,23 @@
-FT2_SUBPIXEL_HINTING=1
-
-XRESOURCES_EGPU_DEF=USING_INTERNAL
-
-xmodmap ~/.xmodmaprc
-
-{{ if eq .Env.HM_TASK "ace" }}
-
-xrandr --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --rotate normal \
-       --output HDMI-0 --mode 3840x2160 --pos 0x0 --rotate normal \
-       --output HDMI-1 --mode 3840x2160 --pos 7680x0 --rotate normal
-
-{{ else if eq .Env.HM_TASK "fate" }}
-
-# if [ "$EGPU_DRIVER" = "intel" ]; then
-# 
-# elif [ "$EGPU_DRIVER" = "amd" ]; then
-     # xrandr --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --rotate normal \
-            # --output HDMI-1-1 --mode 3840x2160 --pos 3840x0 --rotate normal
-# fi
-
-{{ else if eq .Env.HM_TASK "kxdatlas" }}
+rm ~/.Xresources
 
 XORG_FILE="$(readlink -f /etc/X11/xorg.conf)"
 if [[ "$XORG_FILE" == *"egpu"* ]]; then
-    USING_EGPU=1
-    XRESOURCES_EGPU_DEF=USING_EGPU
+    # Do any stuff for hidpi
+
+    export USING_EGPU=1
+    ln -s $HOME/.Xresources.hidpi $HOME/.Xresources
+else
+    # Do any stuff for standard
+    ln -s $HOME/.Xresources.standard $HOME/.Xresources
 fi
+
+{{ if eq .Env.HM_TASK "kxdatlas" }}
+
+xrandr  --output eDP-1-1 --off \
+        --output DP-4 --mode 3840x2160 --pos 0x0 \
+        --output DP-1 --primary --mode 3840x2160 --pos 3840x0 --refresh 30.00 \
+        --output HDMI-0 --mode 3840x2160 --pos 7680x0
 
 {{ end }}
 
-xrdb -D${XRESOURCES_EGPU_DEF} -merge ~/.Xresources
+dunst &

@@ -1,4 +1,3 @@
-source ~/.xprofile
+[ -f $HOME/.xprofile ] && . ~/.xprofile
 
-exec dunst &
 exec i3
