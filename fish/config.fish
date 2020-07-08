@@ -1,4 +1,4 @@
-set PATH $PATH $HOME/bin
+set PATH $PATH $HOME/.local/bin
 
 # --- Fish git prompt ---
 set __fish_git_prompt_showcolorhints true
