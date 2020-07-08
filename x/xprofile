@@ -1,4 +1,4 @@
-rm ~/.Xresources
+rm -f ~/.Xresources
 
 XORG_FILE="$(readlink -f /etc/X11/xorg.conf)"
 if [[ "$XORG_FILE" == *"egpu"* ]]; then
@@ -8,7 +8,11 @@ if [[ "$XORG_FILE" == *"egpu"* ]]; then
     ln -s $HOME/.Xresources.hidpi $HOME/.Xresources
 else
     # Do any stuff for standard
+{{ if eq .Env.HM_TASK "fate" }}
+    ln -s $HOME/.Xresources.hidpi $HOME/.Xresources
+{{ else }}
     ln -s $HOME/.Xresources.standard $HOME/.Xresources
+{{ end }}
 fi
 
 {{ if eq .Env.HM_TASK "kxdatlas" }}

@@ -162,6 +162,12 @@ values."
                                :weight normal
                                :width normal
                                :powerline-scale 1)
+   {{ else if eq .Env.HM_TASK "fate" }}
+   dotspacemacs-default-font '("Fira Code"
+                               :size 22
+                               :weight normal
+                               :width normal
+                               :powerline-scale 1)
    {{ else }}
    dotspacemacs-default-font '("Fira Code"
                                :size  13
