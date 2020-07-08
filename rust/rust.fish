@@ -1,1 +1,1 @@
-set PATH $PATH $HOME/.cargo/bin
+set PATH $HOME/.cargo/bin $PATH
