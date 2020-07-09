@@ -25,5 +25,6 @@ if [[ ! -z "${USING_EGPU}" ]]; then
 fi
 
 {{ end }}
+feh --bg-fill --randomize ~/.local/wallpapers/*
 
 dunst &

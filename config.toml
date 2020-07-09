@@ -33,6 +33,8 @@
     links = [
         [".Xresources.standard", "x/Xresources.standard"],
         [".Xresources.hidpi", "x/Xresources.hidpi"],
+
+        [".local/wallpapers", "x/wallpapers"],
     ]
 
 [tasks.macos]
