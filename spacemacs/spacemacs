@@ -163,8 +163,8 @@ values."
                                :width normal
                                :powerline-scale 1)
    {{ else if eq .Env.HM_TASK "fate" }}
-   dotspacemacs-default-font '("Fira Code"
-                               :size 22
+   dotspacemacs-default-font `("Fira Code"
+                               :size ,(if (string-equal (getenv "USING_EGPU") "1") 22 26)
                                :weight normal
                                :width normal
                                :powerline-scale 1)
@@ -176,7 +176,7 @@ values."
                                :powerline-scale 1)
 
    {{ end }}
-   
+
    ;; The leader key
    dotspacemacs-leader-key "SPC"
    ;; The key used for Emacs commands (M-x) (after pressing on the leader key).
