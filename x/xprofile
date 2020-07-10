@@ -2,17 +2,13 @@ rm -f ~/.Xresources
 
 XORG_FILE="$(readlink -f /etc/X11/xorg.conf)"
 if [[ "$XORG_FILE" == *"egpu"* ]]; then
-    # Do any stuff for hidpi
+    # Do any stuff for egpu
 
     export USING_EGPU=1
-    ln -s $HOME/.Xresources.hidpi $HOME/.Xresources
+    ln -s $HOME/.Xresources.egpu $HOME/.Xresources
 else
-    # Do any stuff for standard
-{{ if eq .Env.HM_TASK "fate" }}
-    ln -s $HOME/.Xresources.hidpi $HOME/.Xresources
-{{ else }}
-    ln -s $HOME/.Xresources.standard $HOME/.Xresources
-{{ end }}
+    # Do any stuff for internal
+    ln -s $HOME/.Xresources.internal $HOME/.Xresources
 fi
 
 {{ if eq .Env.HM_TASK "kxdatlas" }}
@@ -24,7 +20,22 @@ if [[ ! -z "${USING_EGPU}" ]]; then
             --output HDMI-0 --mode 3840x2160 --pos 7680x0 --dpi 160
 fi
 
+{{ else if eq .Env.HM_TASK "fate" }}
+
+if [[ ! -z "${USING_EGPU}" ]]; then
+    echo "Set egpu xrandr"
+#    xrandr  --output eDP-1-1 --off \
+#            --output DP-4 --mode 3840x2160 --pos 0x0 --dpi 160 \
+#            --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --refresh 60.00 --dpi 160 \
+#            --output HDMI-0 --mode 3840x2160 --pos 7680x0 --dpi 160
+else
+    xrandr  --output eDP-1-1 --primary --mode 3840x2160 --pos 0x0 --refresh 60.00 --dpi 160 
+fi
+
 {{ end }}
+
+xrdb -I $HOME -merge ~/.Xresources
+
 feh --bg-fill --randomize ~/.local/wallpapers/*
 
 dunst &

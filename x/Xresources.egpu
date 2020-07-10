@@ -1,0 +1,4 @@
+rofi.dpi: 160
+Xft.dpi: 160
+
+#include ".Xresources.base"

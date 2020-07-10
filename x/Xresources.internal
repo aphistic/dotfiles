@@ -1,0 +1,13 @@
+{{ if eq .Env.HM_TASK "fate" }}
+
+rofi.dpi: 192
+Xft.dpi: 192
+
+{{ else }}
+
+rofi.dpi: 96
+Xft.dpi: 96
+
+{{ end }}
+
+#include ".Xresources.base"
