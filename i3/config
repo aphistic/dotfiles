@@ -178,6 +178,8 @@ bar {
     position top
 }
 
+exec --no-startup-id /usr/bin/compton
+
 {{ if eq .Env.HM_TASK "aphng" }}
 
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
