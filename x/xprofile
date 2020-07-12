@@ -29,7 +29,7 @@ if [[ ! -z "${USING_EGPU}" ]]; then
 #            --output DP-0 --primary --mode 3840x2160 --pos 3840x0 --refresh 60.00 --dpi 160 \
 #            --output HDMI-0 --mode 3840x2160 --pos 7680x0 --dpi 160
 else
-    xrandr  --output eDP-1-1 --primary --mode 3840x2160 --pos 0x0 --refresh 60.00 --dpi 160 
+    xrandr  --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --refresh 60.00 --dpi 160
 fi
 
 {{ end }}
