@@ -60,3 +60,6 @@
 
 [tasks.fate]
     deps = ["desktop"]
+
+[tasks.kiki]
+    deps = ["base"]
