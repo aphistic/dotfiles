@@ -24,6 +24,15 @@ function fish_prompt --description 'Write out the prompt'
         echo -n -s "[P:" (set_color a838a6) (basename $VIRTUAL_ENV) (set_color reset) "]"
     end
 
+    kubernetes_prompt
+
     echo "" # Finish the first line
     echo -s (prompt_pwd) " $user_symbol "
+end
+
+function kubernetes_prompt --description 'Write out the kubernetes info'
+    set -l cur_context (kubectl config current-context | string trim)
+    if [ -n "$cur_context" ]
+        echo -n -s "[K:" (set_color 5fafd7) $cur_context (set_color reset) "]"
+    end
 end
