@@ -31,6 +31,10 @@ function fish_prompt --description 'Write out the prompt'
 end
 
 function kubernetes_prompt --description 'Write out the kubernetes info'
+    if not type -q kubectl
+        return
+    end
+
     set -l cur_context (kubectl config current-context | string trim)
     if [ -n "$cur_context" ]
         echo -n -s "[K:" (set_color 5fafd7) $cur_context (set_color reset) "]"
