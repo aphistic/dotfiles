@@ -35,9 +35,14 @@
         [".config/dunst/dunstrc", "dunst/dunstrc"],
 
         [".config/alacritty/alacritty.yml", "alacritty/alacritty.yml"],
+
+        [".local/bin/spotify", "spotify/spotify.sh"],
     ]
     links = [
         [".local/wallpapers", "x/wallpapers"],
+    ]
+    cmdspost = [
+        ["chmod", "755", ".local/bin/spotify"],
     ]
 
 [tasks.macos]
