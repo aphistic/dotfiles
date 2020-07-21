@@ -196,9 +196,9 @@ workspace 9 output HDMI-0
 
 {{ else if eq .Env.HM_TASK "fate" }}
 
-workspace 1 output HDMI-A-0
-workspace 5 output HDMI-A-1
-workspace 9 output DisplayPort-1
+workspace 1 output DP-4
+workspace 5 output HDMI-0
+workspace 9 output DP-0
 
 exec --no-startup-id blueman-applet
 
