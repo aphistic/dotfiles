@@ -204,9 +204,9 @@ exec --no-startup-id blueman-applet
 
 {{ else if eq .Env.HM_TASK "kxdatlas" }}
 
-workspace 1 output DP-1
+workspace 1 output DP-4
 workspace 5 output HDMI-0
-workspace 9 output DP-4
+workspace 9 output DP-0
 
 {{ end }}
 
