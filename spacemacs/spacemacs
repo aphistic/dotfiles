@@ -39,8 +39,10 @@ values."
      auto-completion
      chrome
      docker
+     elixir
      elm
      emacs-lisp
+     erlang
      helm
      html
      git

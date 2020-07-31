@@ -12,7 +12,9 @@
         [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
         [".config/fish/functions/fish_greeting.fish", "fish/functions/fish_greeting.fish"],
         [".config/fish/functions/fish_user_key_bindings.fish", "fish/functions/fish_user_key_bindings.fish"],
+        [".config/fish/functions/fisher.fish", "fish/functions/fisher.fish"],
 
+        [".config/fish/conf.d/git.fish", "git/git.fish"],
         [".config/fish/conf.d/go.fish", "go/go.fish"],
         [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
     ]
