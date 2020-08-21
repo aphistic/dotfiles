@@ -17,6 +17,8 @@
         [".config/fish/conf.d/git.fish", "git/git.fish"],
         [".config/fish/conf.d/go.fish", "go/go.fish"],
         [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
+
+        [".config/git/gitignore", "git/gitignore"],
     ]
 
 [tasks.desktop]

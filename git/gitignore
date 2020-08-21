@@ -1,0 +1,6 @@
+# Editor State
+.vscode/
+
+# Python
+*.pyc
+venv/

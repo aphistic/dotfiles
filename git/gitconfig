@@ -1,22 +1,18 @@
-[user]
-{{ if eq .Env.HM_TASK "atlassianmac" }}
-	name =  Kristin Davidson
-	email = kdavidson@atlassian.com
-{{ else }}
-    name = Kristin Davidson
-    email = k@kxd.dev
-{{ end }}
-
 [core]
-	editor = nvim
+    editor = nvim
+    excludesfile = {{ .Env.HOME }}/.config/git/gitignore
+
+[user]
+{{- if eq .Env.HM_TASK "kxdatlas" }}
+    name =  Kristin Davidson
+    email = kdavidson@atlassian.com
+{{- else }}
+   name = Kristin Davidson
+   email = k@kxd.dev
+{{- end }}
 
 [merge]
     tool = p4merge
-{{ if eq .Env.HM_TASK "atlassianmac" }}
-[mergetool "p4merge"]
-    cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge $PWD/$BASE $PWD/$REMOTE $PWD/$LOCAL $PWD/$MERGED
-    trustExitCode = false
-{{ end }}
 
 [alias]
     lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
