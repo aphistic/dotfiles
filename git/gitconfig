@@ -3,7 +3,7 @@
     excludesfile = {{ .Env.HOME }}/.config/git/gitignore
 
 [user]
-{{- if eq .Env.HM_TASK "kxdatlas" }}
+{{- if and (eq .Env.HM_TASK "kxdatlas") (not (eq .Env.USER "aphistic")) }}
     name =  Kristin Davidson
     email = kdavidson@atlassian.com
 {{- else }}
