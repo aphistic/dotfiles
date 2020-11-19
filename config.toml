@@ -6,6 +6,7 @@
         [".config/fish/conf.d/go.fish", "go/go.fish"],
     ]
     links = [
+		[".config/doom", "emacs/doom"],
         [".config/nvim/init.vim", "nvim/init.vim"],
         [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
 
@@ -16,10 +17,11 @@
         [".config/fish/functions/fish_user_key_bindings.fish", "fish/functions/fish_user_key_bindings.fish"],
         [".config/fish/functions/fisher.fish", "fish/functions/fisher.fish"],
 
-        [".config/fish/conf.d/fish.fish", "fish/fish.fish"],
         [".config/fish/conf.d/aws.fish", "aws/aws.fish"],
+        [".config/fish/conf.d/fish.fish", "fish/fish.fish"],
         [".config/fish/conf.d/git.fish", "git/git.fish"],
         [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
+        [".config/fish/conf.d/vim.fish", "nvim/vim.fish"],
 
         [".config/git/gitignore", "git/gitignore"],
     ]
@@ -46,6 +48,7 @@
         [".local/bin/spotify", "spotify/spotify.sh"],
     ]
     links = [
+        [".config/fish/conf.d/xclip.fish", "xclip/xclip.fish"],
         [".local/wallpapers", "x/wallpapers"],
     ]
     cmdspost = [
