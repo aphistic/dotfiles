@@ -61,9 +61,6 @@
         ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"],
     ]
 
-[tasks.atlassianmac]
-    deps = ["macos"]
-
 [tasks.kxdatlas]
     deps = ["desktop"]
 
@@ -74,6 +71,9 @@
     deps = ["desktop"]
 
 [tasks.fate]
+    deps = ["desktop"]
+
+[tasks.mononoke]
     deps = ["desktop"]
 
 [tasks.kiki]
