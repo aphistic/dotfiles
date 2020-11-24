@@ -28,6 +28,7 @@ colorscheme nord
 " Change a few of the nord color scheme settings
 hi IncSearch cterm=none ctermfg=15 ctermbg=12 gui=none guifg=#ECEFF4 guibg=#5E81AC
 
+set tabstop=4
 set autoindent
 set smartindent
 set list 					" show trailing whitespace
@@ -63,10 +64,9 @@ nmap <C-n> :NERDTreeToggle<CR>
 set title
 set titlestring=%t
 
-set tabstop=4
-
 let g:ale_linters = {
 	\ 'go': ['gopls'],
 	\}
 
 au FileType go set shiftwidth=4
+au FileType sh set shiftwidth=4

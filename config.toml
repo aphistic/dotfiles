@@ -1,15 +1,19 @@
-[tasks.base]
+[tasks.base_apps]
+    links = [
+        [".config/doom", "emacs/doom"],
+        [".config/nvim/init.vim", "nvim/init.vim"],
+        [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
+
+        [".config/git/gitignore", "git/gitignore"],
+    ]
+
+[tasks.base_fish]
     templates = [
-        [".spacemacs", "spacemacs/spacemacs"],
         [".gitconfig", "git/gitconfig"],
 
         [".config/fish/conf.d/go.fish", "go/go.fish"],
     ]
     links = [
-		[".config/doom", "emacs/doom"],
-        [".config/nvim/init.vim", "nvim/init.vim"],
-        [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
-
         [".config/fish/config.fish", "fish/config.fish"],
         [".config/fish/functions/fish_prompt.fish", "fish/functions/fish_prompt.fish"],
         [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
@@ -22,9 +26,10 @@
         [".config/fish/conf.d/git.fish", "git/git.fish"],
         [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
         [".config/fish/conf.d/vim.fish", "nvim/vim.fish"],
-
-        [".config/git/gitignore", "git/gitignore"],
     ]
+
+[tasks.base]
+    deps = ["base_apps", "base_fish"]
 
 [tasks.desktop]
     deps = ["base"]
