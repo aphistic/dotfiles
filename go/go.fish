@@ -3,7 +3,7 @@ set -x GOPATH $HOME/go
 
 {{ if eq .Env.HM_TASK "kxdatlas" }}
 
-set -x GOPRIVATE 'bitbucket.org/bitbucket/*'
+set -x GOPRIVATE 'bitbucket.org/bitbucket/*,bitbucket.org/hipchat/*'
 
 {{ else }}
 

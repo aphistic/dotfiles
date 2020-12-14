@@ -3,6 +3,7 @@ function aws
         -e AWS_REGION \
         -e AWS_ACCESS_KEY_ID \
         -e AWS_SECRET_ACCESS_KEY \
+        -v $PWD:/data \
         amazon/aws-cli $argv
 end
 

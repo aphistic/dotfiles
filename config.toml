@@ -25,6 +25,7 @@
         [".config/fish/conf.d/fish.fish", "fish/fish.fish"],
         [".config/fish/conf.d/git.fish", "git/git.fish"],
         [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
+        [".config/fish/conf.d/ssh.fish", "ssh/ssh.fish"],
         [".config/fish/conf.d/vim.fish", "nvim/vim.fish"],
     ]
 
