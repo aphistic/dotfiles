@@ -35,7 +35,11 @@ function kubernetes_prompt --description 'Write out the kubernetes info'
         return
     end
 
-    set -l cur_context (kubectl config current-context | string trim)
+    set -l cur_context (kubectl config current-context 2>&1 | string trim)
+    if string match -q 'error: *' $cur_context
+        return
+    end
+
     if [ -n "$cur_context" ]
         echo -n -s "[K:" (set_color 5fafd7) $cur_context (set_color reset) "]"
     end
