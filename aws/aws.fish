@@ -4,6 +4,7 @@ function aws
         -e AWS_ACCESS_KEY_ID \
         -e AWS_SECRET_ACCESS_KEY \
         -v $PWD:/data \
+        -v $HOME/.aws:/root/.aws \
         amazon/aws-cli $argv
 end
 
