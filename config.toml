@@ -42,8 +42,6 @@
         [".Xresources.internal", "x/Xresources.internal"],
         [".Xresources.egpu", "x/Xresources.egpu"],
 
-        [".config/compton/compton.conf", "compton/compton.conf"],
-
         [".config/i3/config", "i3/config"],
         [".i3blocks.conf", "i3/i3blocks.conf"],
 

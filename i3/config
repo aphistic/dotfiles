@@ -178,7 +178,7 @@ bar {
     position top
 }
 
-exec --no-startup-id /usr/bin/compton
+exec --no-startup-id /usr/bin/xcompmgr -r 0 -o 0 -l 0 -t 0 -D 0
 
 {{ if eq .Env.HM_TASK "aphng" }}
 
