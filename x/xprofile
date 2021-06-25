@@ -13,15 +13,27 @@ fi
 
 {{ if eq .Env.HM_TASK "kxdatlas" }}
 
-if [[ ! -z "${USING_EGPU}" ]]; then
-    # If we're using the egpu linux has a problem
-    # opening the right va-api driver, so define it
-    # explicitly
-    export LIBVA_DRIVER_NAME=iHD
-    xrandr  --output eDP-1-1 --off \
-            --output DP-0 --mode 3840x2160 --pos 0x0 --dpi 160 \
-            --output DP-4 --primary --mode 3840x2160 --pos 3840x0 --refresh 60.00 --dpi 160 \
-            --output HDMI-0 --mode 3840x2160 --pos 7680x0 --dpi 160
+export USING_EXTERNAL=1
+displays=( /sys/class/drm/card0-DP-1 /sys/class/drm/card0-DP-3 )
+for disp in "${displays[@]}"
+do
+    if ! grep -q '^connected$' $disp/status; then
+		unset USING_EXTERNAL
+    fi
+done
+
+if [[ ! -z "${USING_EXTERNAL}" ]]; then
+    rm -f ~/.Xresources
+    ln -s $HOME/.Xresources.external $HOME/.Xresources
+
+    # If we found both the primary and secondary are connected then set up
+    # all the screens together.
+    # The DPI was determined by xlayoutdisplay, just in case I need to find out
+    # how to do it again!
+    xrandr --dpi 144 \
+        --output eDP-1-1 --auto \
+        --output DP-1-3 --primary --auto --right-of eDP-1-1 \
+        --output DP-1-1 --auto --right-of DP-1-3
 fi
 
 {{ else if eq .Env.HM_TASK "fate" }}

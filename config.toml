@@ -40,6 +40,7 @@
 
         [".Xresources.base", "x/Xresources.base"],
         [".Xresources.internal", "x/Xresources.internal"],
+        [".Xresources.external", "x/Xresources.external"],
         [".Xresources.egpu", "x/Xresources.egpu"],
 
         [".config/i3/config", "i3/config"],
