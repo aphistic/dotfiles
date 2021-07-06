@@ -34,8 +34,8 @@ if [[ ! -z "${USING_EXTERNAL}" ]]; then
     # how to do it again!
     xrandr --dpi 144 \
         --output eDP-1-1 --auto \
-        --output DP-1-3 --primary --auto --right-of eDP-1-1 \
-        --output DP-1-1 --auto --right-of DP-1-3
+        --output DP-1-1 --primary --auto --right-of eDP-1-1 \
+        --output DP-1-3 --auto --right-of DP-1-1
 fi
 
 {{ else if eq .Env.HM_TASK "fate" }}
