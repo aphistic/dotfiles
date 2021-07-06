@@ -8,6 +8,8 @@ if [[ "$XORG_FILE" == *"egpu"* ]]; then
     ln -s $HOME/.Xresources.egpu $HOME/.Xresources
 else
     # Do any stuff for internal
+
+    export USING_EGPU=
     ln -s $HOME/.Xresources.internal $HOME/.Xresources
 fi
 
@@ -18,7 +20,7 @@ displays=( /sys/class/drm/card0-DP-1 /sys/class/drm/card0-DP-3 )
 for disp in "${displays[@]}"
 do
     if ! grep -q '^connected$' $disp/status; then
-		unset USING_EXTERNAL
+      export USING_EXTERNAL=
     fi
 done
 
