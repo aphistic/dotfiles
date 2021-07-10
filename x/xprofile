@@ -28,6 +28,11 @@ if [[ ! -z "${USING_EXTERNAL}" ]]; then
     rm -f ~/.Xresources
     ln -s $HOME/.Xresources.external $HOME/.Xresources
 
+#    xrandr --fb 9840x3840 --dpi 144 \
+#        --output eDP-1-1 --mode 1920x1080 --pos 0x0 --scale 2x2 \
+#        --output DP-1-1 --primary --mode 3840x2160 --pos 3840x0 \
+#        --output DP-1-3 --mode 3840x2160 --pos 7680x0 --rotate left --dryrun
+
     # If we found both the primary and secondary are connected then set up
     # all the screens together.
     # The DPI was determined by xlayoutdisplay, just in case I need to find out
