@@ -21,6 +21,12 @@ elif [ $UNAMESTR == "Linux" ]; then
     if [ $ARCH == "i686" ]; then
 	LINUX_TYPE="386"
 	HM_PACKAGE=homemaker_linux_386
+    elif [ $ARCH == "armv7l" ]; then
+	LINUX_TYPE="arm"
+	HM_PACKAGE=homemaker_linux_arm
+    else
+        echo "Unknown linux arch"
+	exit 1
     fi
     echo "Processing Linux ($LINUX_TYPE) bootstrap"
     tar xf ${HM_PACKAGE}.tar.gz
