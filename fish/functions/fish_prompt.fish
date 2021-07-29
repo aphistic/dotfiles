@@ -14,7 +14,7 @@ function fish_prompt --description 'Write out the prompt'
 
     echo -n -s [(set_color $user_color)$USER(set_color reset)@(set_color 5fafd7)(prompt_hostname)(set_color reset)]
 
-    set -l git_prompt (fish_git_prompt "%s")
+    set -l git_prompt (__fish_git_prompt "%s")
     if [ -n "$git_prompt" ]
         echo -n -s "[G:" $git_prompt (set_color reset) "]"
     end
