@@ -1,5 +1,7 @@
 rm -f ~/.Xresources
 
+XRDB_ARGS=""
+
 XORG_FILE="$(readlink -f /etc/X11/xorg.conf)"
 if [[ "$XORG_FILE" == *"egpu"* ]]; then
     # Do any stuff for egpu
@@ -9,7 +11,7 @@ if [[ "$XORG_FILE" == *"egpu"* ]]; then
 else
     # Do any stuff for internal
 
-    export USING_EGPU=
+    unset USING_EGPU
     ln -s $HOME/.Xresources.internal $HOME/.Xresources
 fi
 
@@ -20,11 +22,11 @@ displays=( /sys/class/drm/card0-DP-1 /sys/class/drm/card0-DP-3 )
 for disp in "${displays[@]}"
 do
     if ! grep -q '^connected$' $disp/status; then
-      export USING_EXTERNAL=
+        unset USING_EXTERNAL
     fi
 done
 
-if [[ ! -z "${USING_EXTERNAL}" ]]; then
+if [[ -n "${USING_EXTERNAL}" ]]; then
     rm -f ~/.Xresources
     ln -s $HOME/.Xresources.external $HOME/.Xresources
 
@@ -45,19 +47,18 @@ fi
 
 {{ else if eq .Env.HM_TASK "fate" }}
 
-if [[ ! -z "${USING_EGPU}" ]]; then
+if [[ -n "${USING_EGPU}" ]]; then
     echo "Set egpu xrandr"
+	XRDB_ARGS+="-DKXD_DPI=96"
     xrandr  --output eDP-1-1 --off \
-            --output DP-0 --mode 3840x2160 --pos 0x0 --dpi 160 \
-            --output DP-4 --primary --mode 3840x2160 --pos 3840x0 --refresh 60.00 --dpi 160 \
-            --output HDMI-0 --mode 3840x2160 --pos 7680x0 --dpi 160
+            --output DP-2 --primary --mode 5120x1440
 else
     xrandr  --output eDP-1 --primary --mode 3840x2160 --pos 0x0 --refresh 60.00 --dpi 160
 fi
 
 {{ end }}
 
-xrdb -I $HOME -merge ~/.Xresources
+xrdb $XRDB_ARGS -I $HOME -merge ~/.Xresources
 
 feh --bg-fill --randomize ~/.local/wallpapers/*
 
