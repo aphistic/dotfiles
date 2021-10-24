@@ -78,6 +78,9 @@
 [tasks.fate]
     deps = ["desktop"]
 
+[tasks.ghost]
+    deps = ["desktop"]
+
 [tasks.mononoke]
     deps = ["desktop"]
 
