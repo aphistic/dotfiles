@@ -3,6 +3,11 @@
 rofi.dpi: 192
 Xft.dpi: 192
 
+{{ else if eq .Env.HM_TASK "ghost" }}
+
+rofi.dpi: 144
+Xft.dpi: 144
+
 {{ else }}
 
 rofi.dpi: 96
