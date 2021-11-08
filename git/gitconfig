@@ -11,6 +11,9 @@
    email = k@kxd.dev
 {{- end }}
 
+[pull]
+    rebase = false
+
 [merge]
     tool = p4merge
 
