@@ -58,11 +58,16 @@ fi
 
 {{ else if eq .Env.HM_TASK "ghost" }}
 
+DOCKED=`boltctl | grep status | grep active | wc -l`
+if [[ DOCKED -ge 1 ]]; then
+		xrandr \
+				--output DP-4 --primary --mode 3840x2160 \
+				--output DP-3 --mode 3840x2160 --rotate left --left-of DP-4 \
+				--output eDP-1 --mode 2256x1504 --left-of DP-3
+else
+		xrandr --output eDP-1 --primary --pos 0x0 --dpi 160
+fi
 # xrandr  --output eDP-1 --primary --pos 0x0 --dpi 160
-xrandr 	\
-		--output DP-4 --primary --mode 3840x2160 \
-		--output DP-3 --mode 3840x2160 --rotate left --left-of DP-4 \
-		--output eDP-1 --mode 2256x1504 --left-of DP-3
 
 
 
