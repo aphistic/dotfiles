@@ -58,18 +58,17 @@ fi
 
 {{ else if eq .Env.HM_TASK "ghost" }}
 
-DOCKED=`boltctl | grep status | grep active | wc -l`
+DOCK_UUID="008500c9-095f-7301-ffff-ffffffffffff"
+DOCKED=`boltctl info ${DOCK_UUID} | grep -E 'status:\\s+authorized' | wc -l`
 if [[ DOCKED -ge 1 ]]; then
 		xrandr \
-				--output DP-4 --primary --mode 3840x2160 \
-				--output DP-3 --mode 3840x2160 --rotate left --left-of DP-4 \
-				--output eDP-1 --mode 2256x1504 --left-of DP-3
+				--output eDP-1 --mode 2256x1504 --pos 0x0 \
+				--output DP-3-2-1 --mode 3840x2160 --rotate left --pos 2256x0 \
+				--output DP-4 --primary --mode 3840x2160 --pos 4416x0
 else
 		xrandr --output eDP-1 --primary --pos 0x0 --dpi 160
 fi
 # xrandr  --output eDP-1 --primary --pos 0x0 --dpi 160
-
-
 
 {{ end }}
 
