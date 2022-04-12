@@ -1,0 +1,57 @@
+format = """
+\\[$username@$hostname\\]\
+(\\[G:$git_branch\
+$git_commit\
+$git_state\
+$git_metrics\
+( $git_status)\\])\
+(\\[P:$python\\])\
+(\\[K:$kubernetes\\])
+($shell:)$directory ($cmd_duration )($status )$character"""
+
+[character]
+error_symbol = '[\$]()'
+success_symbol = '[\$]()'
+
+[cmd_duration]
+format = "[$duration](bold fg:yellow)"
+
+[directory]
+fish_style_pwd_dir_length = 1
+format = '[$path]()[$read_only]($read_only_style)'
+truncate_to_repo = false
+truncation_length = 2
+
+[git_branch]
+format = '[$branch](fg:#6ab346)'
+
+[git_status]
+format = '($all_status)'
+modified = "[!](bold fg:yellow)"
+staged = "[+](bold fg:green)"
+untracked = "[?](bold fg:red)"
+
+[hostname]
+format = '[$hostname](fg:#5fafd7)'
+ssh_only = false
+
+[kubernetes]
+disabled = false
+format = '[$context](fg:#5fafd7)'
+
+[python]
+format = '([$virtualenv](fg:purple)@)[$version](fg:green)'
+
+[shell]
+disabled = false
+fish_indicator = ""
+format = "[$indicator]()"
+
+[status]
+disabled = false
+format = '[$symbol$status](bold fg:red)'
+symbol = ''
+
+[username]
+format = '[$user](fg:#af87ff)'
+show_always = true

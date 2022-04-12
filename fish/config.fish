@@ -59,3 +59,7 @@ abbr dev 'cd ~/dev'
 abbr dotfiles 'cd ~/.dotfiles'
 abbr ext 'cd ~/ext'
 abbr tmp 'cd ~/tmp'
+
+# Setup shell tools
+zoxide init fish | source
+starship init fish | source

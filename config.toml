@@ -1,88 +1,90 @@
 [tasks.base_apps]
-    links = [
-        [".config/doom", "emacs/doom"],
-        [".config/nvim/init.vim", "nvim/init.vim"],
-        [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
+links = [
+  [".config/doom", "emacs/doom"],
+  [".config/nvim/init.vim", "nvim/init.vim"],
+  [".config/nvim/autoload/plug.vim", "nvim/autoload/plug.vim"],
+  [".config/git/gitignore", "git/gitignore"],
+  [".config/starship.toml", "starship/starship.toml"],
+]
 
-        [".config/git/gitignore", "git/gitignore"],
-    ]
+[tasks.base_nushell]
+links = [
+  [".config/nushell/config.nu", "nushell/config.nu"],
+]
 
 [tasks.base_fish]
-    templates = [
-        [".gitconfig", "git/gitconfig"],
-
-        [".config/fish/conf.d/go.fish", "go/go.fish"],
-    ]
-    links = [
-        [".config/fish/config.fish", "fish/config.fish"],
-        [".config/fish/functions/fish_prompt.fish", "fish/functions/fish_prompt.fish"],
-        [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
-        [".config/fish/functions/fish_greeting.fish", "fish/functions/fish_greeting.fish"],
-        [".config/fish/functions/fish_user_key_bindings.fish", "fish/functions/fish_user_key_bindings.fish"],
-        [".config/fish/functions/fisher.fish", "fish/functions/fisher.fish"],
-
-        [".config/fish/conf.d/aws.fish", "aws/aws.fish"],
-        [".config/fish/conf.d/fish.fish", "fish/fish.fish"],
-        [".config/fish/conf.d/git.fish", "git/git.fish"],
-        [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
-        [".config/fish/conf.d/ssh.fish", "ssh/ssh.fish"],
-        [".config/fish/conf.d/vim.fish", "nvim/vim.fish"],
-    ]
+links = [
+  [".config/fish/config.fish", "fish/config.fish"],
+  [".config/fish/functions/fish_prompt.fish", "fish/functions/fish_prompt.fish"],
+  [".config/fish/functions/fish_right_prompt.fish", "fish/functions/fish_right_prompt.fish"],
+  [".config/fish/functions/fish_greeting.fish", "fish/functions/fish_greeting.fish"],
+  [".config/fish/functions/fish_user_key_bindings.fish", "fish/functions/fish_user_key_bindings.fish"],
+  [".config/fish/functions/fisher.fish", "fish/functions/fisher.fish"],
+  [".config/fish/conf.d/aws.fish", "aws/aws.fish"],
+  [".config/fish/conf.d/fish.fish", "fish/fish.fish"],
+  [".config/fish/conf.d/git.fish", "git/git.fish"],
+  [".config/fish/conf.d/rust.fish", "rust/rust.fish"],
+  [".config/fish/conf.d/ssh.fish", "ssh/ssh.fish"],
+  [".config/fish/conf.d/vim.fish", "nvim/vim.fish"],
+]
+templates = [
+  [".gitconfig", "git/gitconfig"],
+  [".config/fish/conf.d/go.fish", "go/go.fish"],
+]
 
 [tasks.base]
-    deps = ["base_apps", "base_fish"]
+deps = [
+  "base_apps",
+  "base_fish",
+  "base_nushell",
+]
 
 [tasks.desktop]
-    deps = ["base"]
-    templates = [
-        [".xinitrc", "x/xinitrc"],
-        [".xprofile", "x/xprofile"],
-
-        [".Xresources.base", "x/Xresources.base"],
-        [".Xresources.internal", "x/Xresources.internal"],
-        [".Xresources.external", "x/Xresources.external"],
-        [".Xresources.egpu", "x/Xresources.egpu"],
-
-        [".config/i3/config", "i3/config"],
-        [".i3blocks.conf", "i3/i3blocks.conf"],
-
-        [".config/dunst/dunstrc", "dunst/dunstrc"],
-
-        [".config/alacritty/alacritty.yml", "alacritty/alacritty.yml"],
-
-        [".local/bin/spotify", "spotify/spotify.sh"],
-    ]
-    links = [
-        [".config/fish/conf.d/xclip.fish", "xclip/xclip.fish"],
-        [".local/wallpapers", "x/wallpapers"],
-    ]
-    cmdspost = [
-        ["chmod", "755", ".local/bin/spotify"],
-    ]
+cmdspost = [
+  ["chmod", "755", ".local/bin/spotify"],
+]
+deps = ["base"]
+links = [
+  [".config/fish/conf.d/xclip.fish", "xclip/xclip.fish"],
+  [".local/wallpapers", "x/wallpapers"],
+]
+templates = [
+  [".xinitrc", "x/xinitrc"],
+  [".xprofile", "x/xprofile"],
+  [".Xresources.base", "x/Xresources.base"],
+  [".Xresources.internal", "x/Xresources.internal"],
+  [".Xresources.external", "x/Xresources.external"],
+  [".Xresources.egpu", "x/Xresources.egpu"],
+  [".config/i3/config", "i3/config"],
+  [".i3blocks.conf", "i3/i3blocks.conf"],
+  [".config/dunst/dunstrc", "dunst/dunstrc"],
+  [".config/alacritty/alacritty.yml", "alacritty/alacritty.yml"],
+  [".local/bin/spotify", "spotify/spotify.sh"],
+]
 
 [tasks.macos]
-    deps = ["base"]
-    links = [
-        ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"],
-    ]
+deps = ["base"]
+links = [
+  ["Library/KeyBindings/DefaultKeyBinding.dict", "macos/DefaultKeyBinding.dict"],
+]
 
 [tasks.kxdatlas]
-    deps = ["desktop"]
+deps = ["desktop"]
 
 [tasks.ace]
-    deps = ["desktop"]
+deps = ["desktop"]
 
 [tasks.akame]
-    deps = ["desktop"]
+deps = ["desktop"]
 
 [tasks.fate]
-    deps = ["desktop"]
+deps = ["desktop"]
 
 [tasks.ghost]
-    deps = ["desktop"]
+deps = ["desktop"]
 
 [tasks.mononoke]
-    deps = ["desktop"]
+deps = ["desktop"]
 
 [tasks.kiki]
-    deps = ["base"]
+deps = ["base"]
