@@ -3,7 +3,7 @@ format = """
 (\\[G:$git_branch\
 $git_commit\
 $git_state\
-$git_metrics\
+( $git_metrics)\
 ( $git_status)\\])\
 (\\[P:$python\\])\
 (\\[K:$kubernetes\\])
@@ -25,8 +25,14 @@ truncation_length = 2
 [git_branch]
 format = '[$branch](fg:#6ab346)'
 
+[git_metrics]
+disabled = false
+format = '(\(([+$added](fg:green)) ([-$deleted](fg:red))\))'
+
 [git_status]
-format = '($all_status)'
+ahead = "[⇡$count](bold fg:#6ab346)"
+behind = "[⇣$count](bold fg:red)"
+format = '($all_status)( $ahead_behind)'
 modified = "[!](bold fg:yellow)"
 staged = "[+](bold fg:green)"
 untracked = "[?](bold fg:red)"
