@@ -4,7 +4,7 @@ format = """
 $git_commit\
 $git_state\
 ( $git_metrics)\
-( $git_status)\\])\
+($git_status)\\])\
 (\\[P:$python\\])\
 (\\[R:$rust\\])\
 (\\[K:$kubernetes\\])
@@ -33,7 +33,7 @@ format = '(\([+$added](fg:green):[-$deleted](fg:red)\))'
 [git_status]
 ahead = " [⇡$count](bold fg:#6ab346)"
 behind = " [⇣$count](bold fg:red)"
-format = '($all_status)($ahead_behind)'
+format = '( $all_status)($ahead_behind)'
 modified = "[!](bold fg:yellow)"
 staged = "[+](bold fg:green)"
 untracked = "[?](bold fg:red)"
