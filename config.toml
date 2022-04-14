@@ -32,11 +32,17 @@ templates = [
   [".config/fish/conf.d/go.fish", "go/go.fish"],
 ]
 
+[tasks.base_xonsh]
+links = [
+  [".xonshrc", "xonsh/xonshrc"],
+]
+
 [tasks.base]
 deps = [
   "base_apps",
   "base_fish",
   "base_nushell",
+  "base_xonsh",
 ]
 
 [tasks.desktop]
