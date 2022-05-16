@@ -60,6 +60,11 @@ abbr dotfiles 'cd ~/.dotfiles'
 abbr ext 'cd ~/ext'
 abbr tmp 'cd ~/tmp'
 
+# Set these to nothing to get rid of a weird erase message
+# when doing zoxide init
+abbr z ''
+abbr zi ''
+
 # Setup shell tools
 zoxide init fish | source
 starship init fish | source
