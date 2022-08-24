@@ -18,7 +18,7 @@ fi
 {{ if eq .Env.HM_TASK "kxdatlas" }}
 
 export USING_EXTERNAL=1
-displays=( /sys/class/drm/card0-DP-1 /sys/class/drm/card0-DP-3 )
+displays=( /sys/class/drm/card1-DP-1 /sys/class/drm/card1-DP-3 )
 for disp in "${displays[@]}"
 do
     if ! grep -q '^connected$' $disp/status; then
