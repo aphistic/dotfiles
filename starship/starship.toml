@@ -10,6 +10,8 @@ $git_state\
 (\\[K:$kubernetes\\])
 ($shell:)$directory ($cmd_duration )($status )$character"""
 
+command_timeout = 750
+
 [character]
 error_symbol = '[\$]()'
 success_symbol = '[\$]()'
