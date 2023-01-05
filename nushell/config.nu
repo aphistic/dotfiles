@@ -1,5 +1,17 @@
-starship init nu | save ~/.cache/starship/init.nu
-source ~/.cache/starship/init.nu
+let-env config = {
+	show_banner: false
 
-# zoxide init nushell --hook prompt | save ~/.cache/zoxide/init.nu
+	table: {
+		mode: none
+		index_mode: auto
+	}
+
+	history: {
+		max_size: 100000
+		sync_on_enter: true
+		file_format: plaintext
+	}
+}
+
 # source ~/.cache/zoxide/init.nu
+source ~/.cache/starship/init.nu
