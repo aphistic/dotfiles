@@ -1,7 +1,0 @@
-# Editor State
-.vscode/
-.elixir_ls/
-
-# Python
-*.pyc
-venv/

@@ -1,4 +1,0 @@
-rofi.dpi: KXD_DPI
-Xft.dpi: KXD_DPI
-
-#include ".Xresources.base"
