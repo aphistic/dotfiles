@@ -9,6 +9,8 @@ Because Apple doesn't like making things fully scriptable...
 
 ```
 $ brew install chezmoi
+$ brew install age
+$ brew install bitwarden-cli
 $ brew install --cask wezterm
 ```
 
