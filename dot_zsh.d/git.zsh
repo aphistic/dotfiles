@@ -1,0 +1,8 @@
+abbr -q -S ga='git add'
+abbr -q -S gc='git commit -m'
+abbr -q -S gco='git checkout'
+abbr -q -S gd='git diff'
+abbr -q -S gp='git push'
+abbr -q -S gpl='git pull'
+abbr -q -S gs='git status'
+abbr -q -S gl='git lg'

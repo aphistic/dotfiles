@@ -1,0 +1,30 @@
+[[ -f "${HOME}/.fig/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/.fig/shell/zshrc.pre.zsh"
+
+source "${HOME}/.zgenom/zgenom.zsh"
+zgenom autoupdate
+
+if ! zgenom saved; then
+	zgenom load olets/zsh-abbr
+fi
+
+for config_file ($ZSHD/**/*.zsh) source $config_file
+
+# zsh history
+HISTFILE=~/.zsh_history
+HISTSIZE=1000
+SAVEHIST=1000
+
+bindkey -e
+
+# Set up autocompletions
+zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
+autoload -Uz compinit
+rm ~/.zcompdump*; compinit
+
+# Set up fzf completions
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
+
+[[ -f "${HOME}/.fig/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/.fig/shell/zshrc.post.zsh"

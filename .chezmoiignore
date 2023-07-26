@@ -1,0 +1,6 @@
+/ignored
+
+{{ if ne .chezmoi.os "darwin" }}
+# Only copy on macos
+Library/KeyBindings/DefaultKeyBinding.dict
+{{ end }}
