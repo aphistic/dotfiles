@@ -19,7 +19,7 @@ bindkey -e
 # Set up autocompletions
 zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
 autoload -Uz compinit
-rm ~/.zcompdump*; compinit
+rm -f ~/.zcompdump* || true; compinit
 
 # Set up fzf completions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
