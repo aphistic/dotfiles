@@ -5,6 +5,8 @@ zgenom autoupdate
 
 if ! zgenom saved; then
 	zgenom load olets/zsh-abbr
+
+	zgenom save
 fi
 
 for config_file ($ZSHD/**/*.zsh) source $config_file
