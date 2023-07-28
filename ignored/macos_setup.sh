@@ -42,6 +42,7 @@ brew install \
 	neovim \
 	ripgrep \
 	starship \
+	tmux \
 	zoxide
 brew install --cask \
 	fig \

@@ -16,7 +16,12 @@ HISTFILE=~/.zsh_history
 HISTSIZE=1000
 SAVEHIST=1000
 
+# Use emacs keybindings
 bindkey -e
+# Set up other keybinds
+bindkey "^[[H" beginning-of-line
+bindkey "^[[F" end-of-line
+bindkey " " magic-space
 
 # Set up autocompletions
 zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
@@ -26,7 +31,8 @@ rm -f ~/.zcompdump* || true; compinit
 # Set up fzf completions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
+hash rtx && eval "$(rtx activate zsh)"
+hash zoxide && eval "$(zoxide init zsh)"
+hash starship && eval "$(starship init zsh)"
 
 [[ -f "${HOME}/.fig/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/.fig/shell/zshrc.post.zsh"
