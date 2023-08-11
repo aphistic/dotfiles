@@ -26,7 +26,7 @@ bindkey " " magic-space
 # Set up autocompletions
 zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
 autoload -Uz compinit
-rm -f ~/.zcompdump* || true; compinit
+rm -f ~/.zcompdump* 2>&1 > /dev/null || true; compinit
 
 # Set up fzf completions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
