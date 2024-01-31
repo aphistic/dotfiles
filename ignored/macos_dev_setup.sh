@@ -1,9 +1,9 @@
 #!/bin/bash
 
-echo "Installing rtx"
-brew install jdxcode/tap/rtx
+echo "Installing mise"
+brew install jdxcode/tap/mise
 
-rtx plugin add golang
+mise plugin add golang
 
 if ! hash rustup; then
 	echo "Installing Rust"
