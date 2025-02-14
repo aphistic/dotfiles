@@ -45,6 +45,5 @@ brew install \
 	tmux \
 	zoxide
 brew install --cask \
-	fig \
 	wezterm
 

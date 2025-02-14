@@ -1,5 +1,3 @@
-[[ -f "${HOME}/.fig/shell/zshrc.pre.zsh" ]] && builtin source "${HOME}/.fig/shell/zshrc.pre.zsh"
-
 source "${HOME}/.zgenom/zgenom.zsh"
 zgenom autoupdate
 
@@ -35,4 +33,4 @@ hash mise && eval "$(mise activate zsh)"
 hash zoxide && eval "$(zoxide init zsh)"
 hash starship && eval "$(starship init zsh)"
 
-[[ -f "${HOME}/.fig/shell/zshrc.post.zsh" ]] && builtin source "${HOME}/.fig/shell/zshrc.post.zsh"
+export PATH="$PATH:${HOME}/.local/bin"

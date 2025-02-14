@@ -1,7 +1,4 @@
 {{ if eq .chezmoi.os "darwin" }}
-[[ -f "${HOME}/.fig/shell/zprofile.pre.zsh" ]] && builtin source "${HOME}/.fig/shell/zprofile.pre.zsh"
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
-
-[[ -f "${HOME}/.fig/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/.fig/shell/zprofile.post.zsh"
 {{ end }}
+export PATH="$PATH:${HOME}/.local/bin"

@@ -1,24 +1,30 @@
 [core]
-    editor = nvim
-    excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore
+	editor = nvim
+	excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore
 
 [user]
-    name =  Kristin Davidson
+	name =  Kristin Davidson
 {{- if eq .chezmoi.hostname "kxdbook" }}
-    email = kdavidson@atlassian.com
+	email = kdavidson@atlassian.com
 {{- else }}
-    email = k@kxd.dev
+	email = k@kxd.dev
 {{- end }}
 
 [pull]
-    rebase = false
+	rebase = false
 
 [push]
-    default = current
-    autoSetupRemote = true
+	default = current
+	autoSetupRemote = true
 
 [merge]
-    tool = bc
+	tool = bc
 
 [alias]
-    lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
+
+[url "ssh://git@github.com/"]
+	insteadOf = https://github.com/
+
+[url "ssh://git@bitbucket.org/"]
+	insteadOf = https://bitbucket.org/
