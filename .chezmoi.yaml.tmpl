@@ -1,0 +1,5 @@
+data:
+    fullName: {{ promptStringOnce . "fullName" "Full Name" | quote }}
+    email: {{ promptStringOnce . "email" "Email Address" | quote }}
+    git:
+        email: {{ promptStringOnce . "git.email" "[git] Email Address" | quote }}

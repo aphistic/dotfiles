@@ -3,12 +3,8 @@
 	excludesfile = {{ .chezmoi.homeDir }}/.config/git/gitignore
 
 [user]
-	name =  Kristin Davidson
-{{- if eq .chezmoi.hostname "kxdbook" }}
-	email = kdavidson@atlassian.com
-{{- else }}
-	email = git@k.kxd.dev
-{{- end }}
+	name = {{ .fullName | quote }}
+	email = {{ .git.email | quote }}
 
 [commit]
 	gpgsign = true
