@@ -23,9 +23,10 @@ various environments I use them in.
 
 ## Good to Knows
 
-### `dotfiles_private`
+### `remove_privatedata`
 
 This is a private repo I use to store various settings I don't want bots to pick
 up or environment details that probably shouldn't be public. It's formatted the
 same as a regular `chezmoi` source, which is why it doesn't follow the
-`external_` pattern recommended in the `chezmoi` docs.
+`external_` pattern recommended in the `chezmoi` docs. It uses the `remove_`
+prefix instead so the directory itself isn't copied to my home directory.
