@@ -3,3 +3,6 @@ data:
     email: {{ promptStringOnce . "email" "Email Address" | quote }}
     git:
         email: {{ promptStringOnce . "git.email" "[git] Email Address" | quote }}
+    work:
+        enabled: {{ promptBoolOnce . "work.enabled" "[work] Enabled" }}
+        mode: {{ promptStringOnce . "work.mode" "[work] Mode" | quote }}
