@@ -30,3 +30,6 @@ up or environment details that probably shouldn't be public. It's formatted the
 same as a regular `chezmoi` source, which is why it doesn't follow the
 `external_` pattern recommended in the `chezmoi` docs. It uses the `remove_`
 prefix instead so the directory itself isn't copied to my home directory.
+
+My repo, for example, has a `.chezmoidata` directory in its root that has
+various `blah.yaml` files with data used in the public templates.
