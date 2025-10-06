@@ -7,3 +7,5 @@ abbr gl="git lg"
 abbr gp="git push"
 abbr gpl="git pull"
 abbr gs="git status"
+
+abbr k="kubectl"

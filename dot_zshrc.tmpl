@@ -3,6 +3,8 @@ zgenom autoupdate
 
 if ! zgenom saved; then
 	zgenom load olets/zsh-abbr
+	zgenom load zsh-users/zsh-autosuggestions
+	zgenom load olets/zsh-autosuggestions-abbreviations-strategy
 
 	zgenom save
 fi
@@ -26,11 +28,16 @@ zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
 autoload -Uz compinit
 rm -f ~/.zcompdump* 2>&1 > /dev/null || true; compinit
 
+# Autosuggest config
+source $(zgenom api clone_dir olets/zsh-autosuggestions-abbreviations-strategy)/zsh-autosuggestions-abbreviations-strategy.zsh
+ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
+
 # Set up fzf completions
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-hash mise && eval "$(mise activate zsh)"
-hash zoxide && eval "$(zoxide init zsh)"
-hash starship && eval "$(starship init zsh)"
+((hash mise 2>&1) > /dev/null) && eval "$(mise activate zsh)"
+((hash zoxide 2>&1) > /dev/null) && eval "$(zoxide init zsh)"
+((hash starship 2>&1) > /dev/null) && eval "$(starship init zsh)"
+((hash brew 2>&1) > /dev/null) && eval "$(brew shellenv)"
 
 export PATH="$PATH:${HOME}/.local/bin"
