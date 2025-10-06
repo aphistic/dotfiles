@@ -1,6 +1,7 @@
 export PATH=$PATH:/usr/local/go/bin:$HOME/go/bin
 
 {{- if .work.enabled }}
-export GOPROXY={{ (index .work .work.mode).go.proxy | quote }}
-export GONOSUMDB={{ (index .work .work.mode).go.nosumdb | quote }}
+{{ $workdata := (index .work .work.mode) }}
+export GOPROXY={{ $workdata.go.proxy | quote }}
+export GONOSUMDB={{ $workdata.go.nosumdb | quote }}
 {{ end }}
