@@ -47,7 +47,22 @@ ssh_only = false
 
 [kubernetes]
 disabled = false
-format = '[$context](fg:#5fafd7)'
+format = '[$context]($style):[$namespace](fg:#5fd7ad)'
+style = "fg:#5fafd7"
+
+[[kubernetes.contexts]]
+context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/prod-(?P<cluster>[a-z\\-0-9]+)"
+context_alias = "$region/prod-$cluster"
+style = "bold red"
+
+[[kubernetes.contexts]]
+context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/staging-(?P<cluster>[a-z\\-0-9]+)"
+context_alias = "$region/staging-$cluster"
+style = "bold yellow"
+
+[[kubernetes.contexts]]
+context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/(?P<cluster>[a-z\\-0-9]+)"
+context_alias = "$region/$cluster"
 
 [python]
 format = '([$virtualenv](fg:purple)@)[$version](fg:green)'
