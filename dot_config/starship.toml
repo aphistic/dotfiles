@@ -58,7 +58,17 @@ style = "bold red"
 [[kubernetes.contexts]]
 context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/staging-(?P<cluster>[a-z\\-0-9]+)"
 context_alias = "$region/staging-$cluster"
+style = "bold 166"
+
+[[kubernetes.contexts]]
+context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/testing-(?P<cluster>[a-z\\-0-9]+)"
+context_alias = "$region/testing-$cluster"
 style = "bold yellow"
+
+[[kubernetes.contexts]]
+context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/dev-(?P<cluster>[a-z\\-0-9]+)"
+context_alias = "$region/dev-$cluster"
+style = "bold green"
 
 [[kubernetes.contexts]]
 context_pattern = "^arn:aws:eks:(?P<region>[a-z\\-0-9]+):(?P<account>[0-9]+):cluster\\/(?P<cluster>[a-z\\-0-9]+)"
