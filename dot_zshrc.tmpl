@@ -29,6 +29,9 @@ zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
 autoload -Uz compinit
 rm -f ~/.zcompdump* 2>&1 > /dev/null || true; compinit
 
+# If homebrew is available, source its shell stuff
+((hash brew 2>&1) > /dev/null) && source /opt/homebrew/share/zsh/site-functions
+
 # Autosuggest config
 source $(zgenom api clone_dir olets/zsh-autosuggestions-abbreviations-strategy)/zsh-autosuggestions-abbreviations-strategy.zsh
 ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
@@ -42,3 +45,6 @@ ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 ((hash brew 2>&1) > /dev/null) && eval "$(brew shellenv)"
 
 export PATH="$PATH:${HOME}/.local/bin"
+
+# Source syntax highlighting last because it wraps everything else
+source $(zgenom api clone_dir zsh-users/zsh-syntax-highlighting)/zsh-syntax-highlighting.zsh
