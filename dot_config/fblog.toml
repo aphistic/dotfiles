@@ -1,0 +1,11 @@
+message_keys = ["short_message", "msg", "message"]
+time_keys = ["timestamp", "time", "@timestamp", "ts"]
+dump_all_exclude = []
+always_print_fields = [
+    "controller", "controllerGroup", "controllerKind",
+    "err", "error",
+    "stacktrace",
+]
+level_keys = ["level", "severity", "log.level", "loglevel"]
+main_line_format = "{{bold(fixed_size 19 fblog_timestamp)}} {{level_style (uppercase (fixed_size 5 fblog_level))}}:{{#if fblog_prefix}} {{bold(cyan fblog_prefix)}}{{/if}} {{fblog_message}}"
+additional_value_format = "{{(color_rgb 150 150 150 (min_size 25 key))}}{{(color_rgb 150 150 150 \": \")}}{{(color_rgb 150 150 150 value)}}"

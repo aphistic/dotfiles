@@ -43,6 +43,7 @@ ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 (type zoxide > /dev/null) && eval "$(zoxide init zsh)"
 (type starship > /dev/null) && eval "$(starship init zsh)"
 (type brew > /dev/null) && eval "$(brew shellenv)"
+(type fblog > /dev/null) && eval "$(fblog --generate-completions zsh 2>/dev/null)"
 
 export PATH="$PATH:${HOME}/.local/bin"
 
