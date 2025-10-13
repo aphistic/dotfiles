@@ -10,5 +10,9 @@ abbr gpl="git pull"
 abbr gs="git status"
 
 abbr k="kubectl"
+abbr kak="kubectl apply -k"
 abbr kctx="kubectx"
 abbr kns="kubens"
+
+abbr -g plog="fblog"
+abbr -g klog="fblog -p"
