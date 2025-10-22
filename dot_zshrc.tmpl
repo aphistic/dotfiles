@@ -27,7 +27,7 @@ bindkey "^ " magic-space
 # Set up autocompletions
 zstyle :compinstall filename '{{ .chezmoi.homeDir }}/.zshrc'
 autoload -Uz compinit
-rm -f ~/.zcompdump* 2>&1 > /dev/null || true; compinit
+([[ -f ~/.zcompdump ]] && rm -f ~/.zcompdump* || true); compinit
 
 # If homebrew is available, source its shell stuff
 (type brew > /dev/null) && source /opt/homebrew/share/zsh/site-functions
