@@ -1,0 +1,6 @@
+k9s:
+  refreshRate: 2
+  apiServerTimeout: 2m0s
+  ui:
+    headless: true
+    noIcons: false

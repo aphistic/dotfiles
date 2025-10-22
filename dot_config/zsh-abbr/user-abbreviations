@@ -13,6 +13,7 @@ abbr k="kubectl"
 abbr kak="kubectl apply -k"
 abbr kctx="kubectx"
 abbr kns="kubens"
+abbr ktui="k9s"
 
 abbr -g plog="fblog"
 abbr -g klog="fblog -p"
