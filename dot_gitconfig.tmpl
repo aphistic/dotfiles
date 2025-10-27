@@ -4,7 +4,7 @@
 
 [user]
 	name = {{ .fullName | quote }}
-	email = {{ .git.email | quote }}
+	email = {{ .vcs.email | quote }}
 
 #[commit]
 #	gpgsign = true

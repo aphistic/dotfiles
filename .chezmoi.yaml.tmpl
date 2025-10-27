@@ -1,8 +1,8 @@
 data:
     fullName: {{ promptStringOnce . "fullName" "Full Name" | quote }}
     email: {{ promptStringOnce . "email" "Email Address" | quote }}
-    git:
-        email: {{ promptStringOnce . "git.email" "[git] Email Address" | quote }}
+    vcs:
+        email: {{ promptStringOnce . "vcs.email" "[vcs] Email Address" | quote }}
     work:
         enabled: {{ promptBoolOnce . "work.enabled" "[work] Enabled" }}
         {{- if and (index . "work") .work.enabled }}
