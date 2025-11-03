@@ -3,3 +3,5 @@
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
 [[ -f "${HOME}/.fig/shell/zprofile.post.zsh" ]] && builtin source "${HOME}/.fig/shell/zprofile.post.zsh"
+
+source ~/.orbstack/shell/init.zsh 2>/dev/null || :
