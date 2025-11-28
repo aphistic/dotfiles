@@ -9,6 +9,9 @@ abbr gp="git push"
 abbr gpl="git pull"
 abbr gs="git status"
 
+abbr jjs="jj status"
+abbr jjl="jj log --reversed"
+
 abbr k="kubectl"
 abbr kak="kubectl apply -k"
 abbr kctx="kubectx"
