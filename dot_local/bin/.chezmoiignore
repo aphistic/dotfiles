@@ -1,6 +1,4 @@
-/ignored
-
 {{- if ne .chezmoi.os "darwin" }}
 # Only copy on macos
-/Library
+executable_p4merge
 {{- end }}
