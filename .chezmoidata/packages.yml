@@ -1,0 +1,17 @@
+packages:
+  darwin:
+    brews:
+      - name: fzf
+      - name: helix
+      - name: jj
+      - name: k9s
+      - name: kubectx
+      - name: mise
+      - name: neovim
+      - name: ripgrep
+      - name: starship
+      - name: zoxide
+    casks:
+      - name: claude-code
+    cargo:
+      - name: starship-jj
