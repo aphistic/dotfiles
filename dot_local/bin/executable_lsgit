@@ -1,0 +1,96 @@
+#!/usr/bin/env python3
+
+import os
+import re
+import subprocess
+
+max_msg_len = 60
+
+outs = []
+max_name_width = 0
+max_branch_width = 0
+max_rev_width = 0
+for name in sorted(os.listdir(".")):
+    git_path = os.path.join(name, ".git")
+    if not os.path.exists(git_path):
+        continue
+
+    if len(name) > max_name_width:
+        max_name_width = len(name)
+
+    branch_proc = subprocess.run(
+        ["git", "branch", "--show-current"], cwd=name, capture_output=True
+    )
+    branch_name = branch_proc.stdout.strip().decode()
+    if len(branch_name) > max_branch_width:
+        max_branch_width = len(branch_name)
+
+    info_proc = subprocess.run(
+        ["git", "branch", "--list", branch_name, "-v"], cwd=name, capture_output=True
+    )
+    branch_info = info_proc.stdout.strip().decode()
+
+    branch_parts = re.match(r"^[\*\s]+([^\s]+)\s([a-fA-F0-9]+)\s(.+)$", branch_info)
+    if not branch_parts or len(branch_parts.groups()) != 3:
+        raise Exception(f"could not determine branch parts for {name}")
+    branch_rev = branch_parts.group(2)
+    if len(branch_rev) > max_rev_width:
+        max_rev_width = len(branch_rev)
+    branch_msg = branch_parts.group(3)
+
+    x_files = 0
+    x_add = 0
+    x_del = 0
+    change_proc = subprocess.run(
+        ["git", "diff", "--shortstat"],
+        cwd=name,
+        capture_output=True,
+    )
+    change_info = change_proc.stdout.strip().decode()
+    if len(change_info) > 0:
+        changes = re.match(
+            r"^\s*(\d+)[^,]+,\s+(\d+)[^,]+,\s+(\d+).*$",
+            change_info,
+        )
+
+        if len(changes.groups()) > 0:
+            x_files = changes.group(1)
+            x_add = changes.group(2)
+            x_del = changes.group(3)
+
+    outs.append(
+        {
+            "name": name,
+            "branch": branch_name,
+            "rev": branch_rev,
+            "msg": branch_msg,
+            "x_files": x_files,
+            "x_add": x_add,
+            "x_del": x_del,
+        }
+    )
+
+if len(outs) == 0:
+    print("No repositories found")
+else:
+    outs.sort(key=lambda x: x["name"])
+    for out in outs:
+        dir_name = out["name"]
+        branch_name = out["branch"]
+        rev_name = out["rev"]
+        msg = out["msg"]
+        x_files = out["x_files"]
+        x_add = out["x_add"]
+        x_del = out["x_del"]
+
+        if len(msg) > max_msg_len:
+            msg = msg[: max_msg_len - 3] + "..."
+
+        line = dir_name.ljust(max_name_width) + "\033[0m "
+        if x_files == 0:
+            line += "\033[0;32m" + branch_name.ljust(max_branch_width) + "\033[0m "
+        else:
+            line += "\033[0;31m" + branch_name.ljust(max_branch_width) + "\033[0m "
+        line += "\033[1;36m" + rev_name.ljust(max_rev_width) + "\033[0m "
+        line += msg
+        print(line)
