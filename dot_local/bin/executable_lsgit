@@ -53,7 +53,7 @@ for name in sorted(os.listdir(".")):
             change_info,
         )
 
-        if len(changes.groups()) > 0:
+        if changes and len(changes.groups()) > 0:
             x_files = changes.group(1)
             x_add = changes.group(2)
             x_del = changes.group(3)

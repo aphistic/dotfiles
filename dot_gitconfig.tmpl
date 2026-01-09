@@ -19,7 +19,7 @@
 [merge]
 	tool = kxdmergetool
 [mergetool "kxdmergetool"]
-	cmd = 'mergetool "$BASE" "$LOCAL" "$REMOTE" "$MERGED"'
+	cmd = mergetool "$BASE" "$LOCAL" "$REMOTE" "$MERGED"
 
 [alias]
 	lg = log --color --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit
