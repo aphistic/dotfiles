@@ -7,7 +7,8 @@ $git_state\
 ($git_status)\\])\
 (\\[P:$python\\])\
 (\\[R:$rust\\])\
-(\\[K:$kubernetes\\])
+(\\[K:$kubernetes\\])\
+(\\[Pmi:$pulumi\\])
 ($shell:)$directory ($cmd_duration )($status )$character"""
 
 command_timeout = 750
@@ -40,6 +41,9 @@ format = '( $all_status)($ahead_behind)'
 modified = "[!](bold fg:yellow)"
 staged = "[+](bold fg:green)"
 untracked = "[?](bold fg:red)"
+
+[pulumi]
+format = '[$stack](fg:#6ab346)'
 
 [hostname]
 format = '[$hostname](fg:#5fafd7)'
