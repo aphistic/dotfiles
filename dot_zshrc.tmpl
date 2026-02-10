@@ -46,8 +46,7 @@ ZSH_AUTOSUGGEST_STRATEGY=( abbreviations $ZSH_AUTOSUGGEST_STRATEGY )
 (type doctl > /dev/null) && eval "$(doctl completion zsh)"
 (type starship > /dev/null) && eval "$(starship init zsh)"
 
-export PATH="$PATH:${HOME}/.local/bin"
-export PATH="$PATH:${HOME}/.pulumi/bin"
+export PATH="$PATH:${HOME}/.local/bin:${HOME}/.pulumi/bin:$PATH:${HOME}/.rd/bin"
 
 # Source syntax highlighting last because it wraps everything else
 source $(zgenom api clone_dir zsh-users/zsh-syntax-highlighting)/zsh-syntax-highlighting.zsh

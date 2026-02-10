@@ -2,3 +2,4 @@
 "go" = "latest"
 "python" = "latest"
 "rust" = ["stable", "nightly"]
+"github:gotestyourself/gotestsum" = "latest"
