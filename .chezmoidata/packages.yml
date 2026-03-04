@@ -1,6 +1,7 @@
 packages:
   darwin:
     brews:
+      - name: age
       - name: fzf
       - name: helix
       - name: jj
@@ -12,6 +13,7 @@ packages:
       - name: starship
       - name: zoxide
     casks:
+      - name: 1password-cli
       - name: claude-code
     cargo:
       - name: starship-jj
