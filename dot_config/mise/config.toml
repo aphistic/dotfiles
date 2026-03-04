@@ -1,4 +1,5 @@
 [tools]
+"fnox" = "latest"
 "go" = "latest"
 "python" = "latest"
 "rust" = ["stable", "nightly"]
