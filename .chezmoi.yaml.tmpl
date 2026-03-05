@@ -1,6 +1,9 @@
+{{- $sshKeyChoices := list "rsa" "ed25519" -}}
 data:
     fullName: {{ promptStringOnce . "fullName" "Full Name" | quote }}
     email: {{ promptStringOnce . "email" "Email Address" | quote }}
+    ssh:
+        keyType: {{ promptChoiceOnce . "ssh.keyType" "[ssh] Key type" $sshKeyChoices }}
     vcs:
         email: {{ promptStringOnce . "vcs.email" "[vcs] Email Address" | quote }}
     work:

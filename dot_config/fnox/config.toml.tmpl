@@ -1,5 +1,5 @@
 {{ if .work.enabled }}
-{{ includeTemplate (printf "remove_privatedata/dot_config/fnox/config.%s.toml.tmpl" .work.mode ) }}
+{{ includeTemplate (printf "remove_privatedata/dot_config/fnox/config.%s.toml.tmpl" .work.mode ) . }}
 {{ else }}
-{{ includeTemplate "remove_privatedata/dot_config/fnox/config.toml.tmpl" }}
+{{ includeTemplate "remove_privatedata/dot_config/fnox/config.toml.tmpl" . }}
 {{ end }}

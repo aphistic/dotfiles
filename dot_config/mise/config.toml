@@ -4,3 +4,4 @@
 "python" = "latest"
 "rust" = ["stable", "nightly"]
 "github:gotestyourself/gotestsum" = "latest"
+"github:Infisical/cli" = "latest"
