@@ -3,5 +3,6 @@
 "go" = "latest"
 "python" = "latest"
 "rust" = ["stable", "nightly"]
+"bitwarden" = "latest"
 "github:gotestyourself/gotestsum" = "latest"
-"github:Infisical/cli" = "latest"
+"github:infisical/cli" = "latest"
