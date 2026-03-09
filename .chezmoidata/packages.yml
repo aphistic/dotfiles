@@ -15,5 +15,6 @@ packages:
     casks:
       - name: 1password-cli
       - name: claude-code
+      - name: aws-vault
     cargo:
       - name: starship-jj
