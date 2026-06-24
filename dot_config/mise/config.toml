@@ -3,6 +3,8 @@
 "go" = "latest"
 "python" = "latest"
 "rust" = ["stable", "nightly"]
+"node" = "latest"
 "bitwarden" = "latest"
 "github:gotestyourself/gotestsum" = "latest"
 "github:infisical/cli" = "latest"
+"npm:@mermaid-js/mermaid-cli" = "latest"

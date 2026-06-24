@@ -1,0 +1,3 @@
+{{- if .work.enabled }}
+{{- includeTemplate (printf "remove_privatedata/dot_zsh.d/%s.zsh.tmpl" .work.mode ) . }}
+{{ end }}
