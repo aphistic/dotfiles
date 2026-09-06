@@ -1,3 +1,6 @@
 export ZSHD=$HOME/.zsh.d
 
 # for config_file ($ZSHD/**/*.zshenv) source $config_file
+
+# Include mise shims in the path for non-interactive shells.
+export PATH="$HOME/.local/share/mise/shims:${PATH}"
