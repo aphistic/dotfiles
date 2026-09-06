@@ -4,5 +4,6 @@
 "python" = "latest"
 "rust" = ["stable", "nightly"]
 "bitwarden" = "latest"
+"gcloud" = "latest"
 "github:gotestyourself/gotestsum" = "latest"
 "github:infisical/cli" = "latest"
